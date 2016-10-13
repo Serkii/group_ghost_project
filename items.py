@@ -7,5 +7,15 @@ item_camera = {
 #the description of the item when examined (possibly contains hints for how to use in some cases?)
 	"desc": """This camera looks like it's been left untouched for
 	a long time. It's surprising it even works at all, to be honest."""
+	
 }
 
+item_pizza = {
+
+	"id": "pizza",
+
+	"name": "the pizza"
+
+	"desc": "desc to be added later"
+
+}

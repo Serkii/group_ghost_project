@@ -1,0 +1,1 @@
+inventory = [item_pizza]
