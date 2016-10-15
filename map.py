@@ -94,7 +94,7 @@ room_bathroom = {
 room_hidden = {
     "name": "Hidden Room",
     "description": """DESCRIPTION""",
-    "exits": {"north", "RoomLandingRight"},
+    "exits": {"north": "RoomLandingRight"},
     "items": []
 }
 
