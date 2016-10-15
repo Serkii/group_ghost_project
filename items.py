@@ -14,8 +14,18 @@ item_pizza = {
 
 	"id": "pizza",
 
-	"name": "the pizza"
+	"name": "the pizza",
 
 	"desc": "desc to be added later"
+
+}
+
+item_proton_gun = {
+	
+	"id": "proton_gun",
+
+	"name": "a proton gun",
+
+	"desc": "DESCRIPTION"
 
 }
