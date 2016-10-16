@@ -1,9 +1,8 @@
-
 from map import rooms
 from player import *
 from items import *
 from gameparser import *
-
+from sound import *
 
 
 def list_of_items(items):
@@ -265,11 +264,13 @@ def move(exits, direction):
     """
 
     # Next room to go to
+    play_sound("door_open.wav")
     return rooms[exits[direction]]
 
     # This is the entry point of our program
 def main():
 
+    load_sounds()
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
