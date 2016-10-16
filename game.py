@@ -3,7 +3,10 @@ from player import *
 from items import *
 from gameparser import *
 from sound import *
+import pickle
 
+
+SAVE_FILE = "save_data"
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -192,6 +195,18 @@ def execute_command(command):
             execute_take(command[1])
         else:
             print("Take what?")
+            
+    elif command[0] == "drop":
+        if len(command) > 1:
+            execute_drop(command[1])
+        else:
+            print("Drop what?")
+
+    elif command[0] == "save":
+        save_state()
+
+    elif command[0] == "load":
+        load_state()
 
     else:
         print("This makes no sense.")
@@ -215,19 +230,25 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    full_id = ""
-
-    for item in current_room["items"]:
-        if item_id == item["id"]:
-            full_id = item
-
-    if not full_id == "":
-        inventory.append(full_id)
-        current_room["items"].remove(full_id)
+    item_matches = [item for item in current_room["items"] if item["id"] == item_id]
+    if item_matches:
+        current_room["items"].remove(item_matches[0])
+        inventory.append(item_matches[0])
     else:
         print("You cannot take that.")
+    
 
-#execute_drop is ommited here as I think we should make it an option from an inventory menu, will need some small changes - Rowan
+def execute_drop(item_id):
+    """This function takes an item_id as an argument and moves this item from the
+    player's inventory to list of items in the current room. However, if there is
+    no such item in the inventory, this function prints "You cannot drop that."
+    """
+    item_matches = [item for item in inventory if item["id"] == item_id]
+    if item_matches:
+        inventory.remove(item_matches[0])
+        current_room["items"].append(item_matches[0])
+    else:
+        print("You cannot drop that.")
 
 
 def menu(exits, room_items, inv_items):
@@ -266,6 +287,20 @@ def move(exits, direction):
     # Next room to go to
     play_sound("door_open.wav")
     return rooms[exits[direction]]
+
+def save_state():
+    state = [current_room, rooms]
+    save_file = open(SAVE_FILE, "wb")
+    pickle.dump(state, save_file)
+    save_file.close()
+
+def load_state():
+    global current_room
+    save_file = open(SAVE_FILE, "rb")
+    state = pickle.load(save_file)
+    save_file.close()
+    rooms = state[1]
+    current_room = state[0]
 
     # This is the entry point of our program
 def main():
