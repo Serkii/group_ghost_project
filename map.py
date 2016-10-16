@@ -18,7 +18,7 @@ room_lobby = {
     "description": """DESCRIPTION""",
     "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": lobby_on_enter,
-    "items": []
+    "items": [item_proton_gun]
 }
 
 room_living = {
