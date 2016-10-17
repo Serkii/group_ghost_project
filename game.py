@@ -173,21 +173,30 @@ def print_menu(exits, room_items, inv_items):
 
     """
     print("You can:")
+    print("Type INV to access inventory menu and player status.")
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
     for item in room_items:
         print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")
-    for item in inv_items:
-        print("DROP " + str.upper(item["id"]) + " to drop " + item["name"] + ".")
     for item in room_items:
-        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
-    for item in inv_items:
         print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
     
     print("What do you want to do?")
 
+def print_inv_menu(inventory):
+
+    print("Your sanity is at " + str(sanity) + "%.")
+    print("")
+    print("You can:")
+
+    for item in inventory:
+        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
+    for item in inventory:
+        print("DROP " + str.upper(item["id"]) + " to drop " + item["name"] + ".")
+    print("EXIT this menu.")
+    print("What do you want to do?")
 
 def is_valid_exit(exits, chosen_exit):
     """This function checks, given a dictionary "exits" (see map.py) and
@@ -208,6 +217,8 @@ def execute_command(command):
     execute_take, or execute_drop, supplying the second word as the argument.
 
     """
+
+    global gamestate
 
     if 0 == len(command):
         return
@@ -237,7 +248,19 @@ def execute_command(command):
         load_state()
 
     elif command[0] == "examine":
-        execute_examine(command[1])
+        if gamestate == 0:
+            execute_examine_room(command[1])
+        elif gamestate == 1:
+            execute_examine_inv(command[1])
+
+
+    elif command[0] == "inv":
+        gamestate = 1
+
+    elif command[0] == "exit":
+        if gamestate == 1:
+            gamestate = 0
+            main()
 
     else:
         print("This makes no sense.")
@@ -285,9 +308,17 @@ def execute_drop(item_id):
         print("You cannot drop that.")
 
 
-def execute_examine(item_id):
+def execute_examine_room(item_id):
 
     item_matches = [item for item in current_room["items"] + inventory if item["id"] == item_id]
+    if item_matches:
+        print(item_matches[0]["desc"])
+    else:
+        print("You cannot examine that.")
+
+def execute_examine_inv(item_id):
+
+    item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])
     else:
@@ -309,6 +340,16 @@ def menu(exits, room_items, inv_items):
     user_input = input("> ")
 
     # Normalise the input
+    normalised_user_input = normalise_input(user_input)
+
+    return normalised_user_input
+
+def inv_menu(inventory):
+
+    print_inv_menu(inventory)
+
+    user_input = input("> ")
+
     normalised_user_input = normalise_input(user_input)
 
     return normalised_user_input
@@ -347,11 +388,11 @@ def load_state():
     # This is the entry point of our program
 def main():
 
-    load_sounds()
-    
     #print_intro("PLACEHOLDER NAME")
     # Main game loop
-    while True:
+    while gamestate == 0:
+
+    
         # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
@@ -362,10 +403,23 @@ def main():
         # Execute the player's command
         execute_command(command)
 
+    while gamestate == 1:
+
+        print("")
+        print_inventory_items(inventory)
+
+        command = inv_menu(inventory)
+
+        execute_command(command)
+        
+        
+
 
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
+    load_sounds()
+    gamestate = 0
     main()
