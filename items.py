@@ -18,6 +18,7 @@ item_pizza = {
 
 	"desc": "desc to be added later"
 
+	"movable": True
 }
 
 item_proton_gun = {
@@ -28,4 +29,5 @@ item_proton_gun = {
 
 	"desc": "DESCRIPTION"
 
+	"movable": True
 }

@@ -4,9 +4,26 @@ from items import *
 from gameparser import *
 from sound import *
 import pickle
+import sys
+import time
 
 
 SAVE_FILE = "save_data"
+
+def print_intro(name):
+    text = """This is the instroductory text.
+
+Hello {0}.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+Bye, {0}.
+""".format(name)
+
+    for char in text:
+        time.sleep(0.01)
+        print(char, end="")
+        sys.stdout.flush()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -147,6 +164,11 @@ def print_menu(exits, room_items, inv_items):
     DROP ID to drop your id card.
     DROP LAPTOP to drop your laptop.
     DROP MONEY to drop your money.
+    EXAMINE BISCUITS to get more information about this item.
+    EXAMINE HANDBOOK to get more information about this item.
+    EXAMINE ID to get more information about this item.
+    EXAMINE LAPTOP to get more information about this item.
+    EXAMINE MONEY to get more information about this item.
     What do you want to do?
 
     """
@@ -156,7 +178,13 @@ def print_menu(exits, room_items, inv_items):
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
     for item in room_items:
-        print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")#
+        print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")
+    for item in inv_items:
+        print("DROP " + str.upper(item["id"]) + " to drop " + item["name"] + ".")
+    for item in room_items:
+        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
+    for item in inv_items:
+        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
     
     print("What do you want to do?")
 
@@ -208,6 +236,9 @@ def execute_command(command):
     elif command[0] == "load":
         load_state()
 
+    elif command[0] == "examine":
+        execute_examine(command[1])
+
     else:
         print("This makes no sense.")
 
@@ -220,7 +251,10 @@ def execute_go(direction):
 
     global current_room
     if is_valid_exit(current_room["exits"], direction) == True:
-        current_room = move(current_room["exits"], direction)
+        new_room = move(current_room["exits"], direction)
+        if "on_enter" in new_room and not new_room["on_enter"](new_room):
+            return
+        current_room = new_room
     else:
         print("You cannot go that way.")
 
@@ -251,6 +285,14 @@ def execute_drop(item_id):
         print("You cannot drop that.")
 
 
+def execute_examine(item_id):
+
+    item_matches = [item for item in current_room["items"] + inventory if item["id"] == item_id]
+    if item_matches:
+        print(item_matches[0]["desc"])
+    else:
+        print("You cannot examine that.")
+        
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
@@ -306,6 +348,8 @@ def load_state():
 def main():
 
     load_sounds()
+    
+    #print_intro("PLACEHOLDER NAME")
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
