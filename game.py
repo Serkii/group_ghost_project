@@ -147,6 +147,11 @@ def print_menu(exits, room_items, inv_items):
     DROP ID to drop your id card.
     DROP LAPTOP to drop your laptop.
     DROP MONEY to drop your money.
+    EXAMINE BISCUITS to get more information about this item.
+    EXAMINE HANDBOOK to get more information about this item.
+    EXAMINE ID to get more information about this item.
+    EXAMINE LAPTOP to get more information about this item.
+    EXAMINE MONEY to get more information about this item.
     What do you want to do?
 
     """
@@ -156,7 +161,13 @@ def print_menu(exits, room_items, inv_items):
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
     for item in room_items:
-        print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")#
+        print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")
+    for item in inv_items:
+        print("DROP " + str.upper(item["id"]) + " to drop " + item["name"] + ".")
+    for item in room_items:
+        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
+    for item in inv_items:
+        print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
     
     print("What do you want to do?")
 
@@ -208,6 +219,9 @@ def execute_command(command):
     elif command[0] == "load":
         load_state()
 
+    elif command[0] == "examine"
+        execute_examine(command[1])
+
     else:
         print("This makes no sense.")
 
@@ -251,6 +265,17 @@ def execute_drop(item_id):
         print("You cannot drop that.")
 
 
+def execute_examine(item_id):
+
+    item_matches_room = [item for item in current_room["items"] if item["id"] == item_id]
+    item_matches_inv = [item for item in inventory if item["id"] == item_id]
+    if item_matches_room:
+        print(item_matches_room["desc"])
+    elif item_matches_inv:
+        print(item_matches_inv["desc"])
+    else:
+        print("You cannot examine that.")
+        
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
