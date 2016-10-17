@@ -12,4 +12,5 @@ def load_sounds():
 	print("Done loading sounds")
 
 def play_sound(name):
+	pass
 	#loaded_sounds[name].play()
