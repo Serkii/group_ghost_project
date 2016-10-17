@@ -219,7 +219,7 @@ def execute_command(command):
     elif command[0] == "load":
         load_state()
 
-    elif command[0] == "examine"
+    elif command[0] == "examine":
         execute_examine(command[1])
 
     else:
@@ -267,12 +267,9 @@ def execute_drop(item_id):
 
 def execute_examine(item_id):
 
-    item_matches_room = [item for item in current_room["items"] if item["id"] == item_id]
-    item_matches_inv = [item for item in inventory if item["id"] == item_id]
-    if item_matches_room:
-        print(item_matches_room["desc"])
-    elif item_matches_inv:
-        print(item_matches_inv["desc"])
+    item_matches = [item for item in current_room["items"] + inventory if item["id"] == item_id]
+    if item_matches:
+        print(item_matches[0]["desc"])
     else:
         print("You cannot examine that.")
         
