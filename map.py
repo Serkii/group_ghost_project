@@ -5,6 +5,7 @@ def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
     # *play sound*
     print("The front door slams shut behind you!")
+    return True
 
 room_outside = {
     "name": "Outside",

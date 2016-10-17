@@ -251,7 +251,10 @@ def execute_go(direction):
 
     global current_room
     if is_valid_exit(current_room["exits"], direction) == True:
-        current_room = move(current_room["exits"], direction)
+        new_room = move(current_room["exits"], direction)
+        if "on_enter" in new_room and not new_room["on_enter"](new_room):
+            return
+        current_room = new_room
     else:
         print("You cannot go that way.")
 
@@ -346,7 +349,7 @@ def main():
 
     load_sounds()
     
-    print_intro("PLACEHOLDER NAME")
+    #print_intro("PLACEHOLDER NAME")
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
