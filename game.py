@@ -219,7 +219,7 @@ def execute_command(command):
     elif command[0] == "load":
         load_state()
 
-    elif command[0] == "examine"
+    elif command[0] == "examine":
         execute_examine(command[1])
 
     else:
