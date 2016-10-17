@@ -28,7 +28,7 @@ item_proton_gun = {
 
 	"name": "a proton gun",
 
-	"desc": "DESCRIPTION"
+	"desc": "DESCRIPTION",
 
 	"movable": True
 }
@@ -40,7 +40,7 @@ item_radio = {
 	"name": "A Walkie-Talkie"
 
 	"desc": """It’s a very expensive looking Walkie-Talkie there are all sorts of dials
-and knobs you probably shouldn’t touch it is tuned to the Ghost Busters frequency."""
+and knobs you probably shouldn’t touch it is tuned to the Ghost Busters frequency.""",
 
 	"moveable": False
 }
