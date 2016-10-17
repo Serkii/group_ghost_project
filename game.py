@@ -3,6 +3,7 @@ from player import *
 from items import *
 from gameparser import *
 from sound import *
+from npc import *
 import pickle
 import sys
 import time
@@ -229,6 +230,12 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
+            
+    elif command[0] == "approach":
+        if len(command) > 1:
+            execute_approach(command[1])
+        else:
+            print("Approach what?")
 
     elif command[0] == "save":
         save_state()
@@ -241,6 +248,14 @@ def execute_command(command):
 
     else:
         print("This makes no sense.")
+
+def execute_approach(npc_name):
+    global current_room
+    npc_matches = [npc for npc in current_room.get("npcs", []) if npc["name"].lower() == npc_name]
+    if npc_matches:
+        converse(npc_matches[0])
+    else:
+        print("I can't see %s here..." % npc_name)
 
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room

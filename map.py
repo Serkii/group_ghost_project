@@ -1,5 +1,5 @@
 from items import *
-#from npc import *
+from npc import *
 
 #Added some conditions that need to be implemented into the code
 
@@ -34,7 +34,8 @@ of the second floor.""",
     #condition: "A strong ghostly aura blocks you from climbing the stairs"
     "exits": {"north": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": lobby_on_enter,
-    "items": [item_proton_gun]
+    "items": [item_proton_gun],
+    "npcs": [npc_test_ghost]
 }
 
 room_living = {
