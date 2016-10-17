@@ -17,7 +17,7 @@ item_pizza = {
 	"name": "A stack of Pizzas",
 
 	"desc": """It is a stack of pizza boxes you have been carrying around,
-there are two Margarita pizzas, one Hawaiian Pizza and some garlic bread, the smell causes a grumble in your stomach."""
+there are two Margarita pizzas, one Hawaiian Pizza and some garlic bread, the smell causes a grumble in your stomach.""",
 
 	"movable": True
 }
