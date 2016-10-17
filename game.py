@@ -4,9 +4,26 @@ from items import *
 from gameparser import *
 from sound import *
 import pickle
+import sys
+import time
 
 
 SAVE_FILE = "save_data"
+
+def print_intro(name):
+    text = """This is the instroductory text.
+
+Hello {0}.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+Bye, {0}.
+""".format(name)
+
+    for char in text:
+        time.sleep(0.01)
+        print(char, end="")
+        sys.stdout.flush()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -328,6 +345,8 @@ def load_state():
 def main():
 
     load_sounds()
+    
+    print_intro("PLACEHOLDER NAME")
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
