@@ -14,9 +14,10 @@ item_pizza = {
 
 	"id": "pizza",
 
-	"name": "the pizza",
+	"name": "A stack of Pizzas",
 
-	"desc": "desc to be added later"
+	"desc": """It is a stack of pizza boxes you have been carrying around,
+there are two Margarita pizzas, one Hawaiian Pizza and some garlic bread, the smell causes a grumble in your stomach."""
 
 	"movable": True
 }
@@ -30,4 +31,16 @@ item_proton_gun = {
 	"desc": "DESCRIPTION"
 
 	"movable": True
+}
+
+item_radio = {
+	
+	"id": "radio"
+
+	"name": "A Walkie-Talkie"
+
+	"desc": """It’s a very expensive looking Walkie-Talkie there are all sorts of dials
+and knobs you probably shouldn’t touch it is tuned to the Ghost Busters frequency."""
+
+	"moveable": False
 }
