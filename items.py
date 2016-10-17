@@ -35,9 +35,9 @@ item_proton_gun = {
 
 item_radio = {
 	
-	"id": "radio"
+	"id": "radio",
 
-	"name": "A Walkie-Talkie"
+	"name": "A Walkie-Talkie",
 
 	"desc": """It’s a very expensive looking Walkie-Talkie there are all sorts of dials
 and knobs you probably shouldn’t touch it is tuned to the Ghost Busters frequency.""",
