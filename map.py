@@ -142,7 +142,6 @@ Most of the ancient books are fallen, lying on the ground in a chaotic state mak
 An armchair ripped to shreds and a coffee table, with one leg short are situated in the middle of the room.
 You are surrounded by information that could be helpful to complete your mission.
 """,
-    #condition: "<Ghost here>"
     "exits": {"south": "RoomLandingLeft"},
     "items": [item_familytree,item_book],
     "ghost_in_room": False

@@ -83,7 +83,7 @@ item_book = {
 
 	"name": "A book"
 
-	"desc": "The title on the book hints it should be quite boring to read that. Perhaps the owner of the house like to read that kind of stuff?"
+	"desc": "The title on the book hints it would be quite boring to read that. Instead of reading it, is there another use for that?"
 
 	"movable": True
 
