@@ -21,8 +21,6 @@ item_pizza1 = {
 	"movable": True
 }
 
-}
-
 item_pizza2 = {
 
 	"id": "pizza1",
@@ -65,4 +63,30 @@ item_test_cookies = {
 	"desc": "These are for testing combat. Take them to the test ghost.",
 
 	"movable": True
+}
+
+item_familytree = {
+	
+	"id": "familytree"
+
+	"name": "A picture of family tree"
+
+	"desc": "The family tree dates back to the 18th century, but the bottom part of the tree has been teared away. The contents of the tree are : WIP"
+
+	"movable": True
+
+}
+
+item_book = {
+	
+	"id": "book"
+
+	"name": "A book"
+
+	"desc": "The title on the book hints it should be quite boring to read that. Perhaps the owner of the house like to read that kind of stuff?"
+
+	"movable": True
+
+
+
 }
