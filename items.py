@@ -23,7 +23,7 @@ item_pizza1 = {
 
 item_pizza2 = {
 
-	"id": "pizza1",
+	"id": "pizza2",
 
 	"name": "Hawaiian Pizza",
 
