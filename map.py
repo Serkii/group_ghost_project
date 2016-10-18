@@ -1,5 +1,6 @@
 from items import *
 from npc import *
+from ghosts import *
 
 #Added some conditions that need to be implemented into the code
 
@@ -21,7 +22,8 @@ applied to it. Your moped purrs' and waits on standby for your return, once the
 pizzas have been delivered of course.""",
     #condition: You should not be able to return to this room once entering the lobby
     "exits": {"north": "RoomLobby"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_lobby = {
@@ -35,7 +37,8 @@ of the second floor.""",
     "exits": {"north": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": lobby_on_enter,
     "items": [item_proton_gun],
-    "npcs": [npc_test_ghost]
+    "npcs": [npc_test_ghost],
+    "ghost_in_room": False
 }
 
 room_living = {
@@ -49,8 +52,12 @@ classical melody originating from a gramophone in the corner of the room,
 the melody is paired with the soft crackle of the fireplace attached to the north wall.
 Somehow the fire still burns.""",
     #condition: "In front of the fire a Doberman rests, when you try to focus your eyes on him he seemingly disappears."
+    #the condition below is for test_ghost, can be removed to use above ghost condition later
+    "condition": "The terrifying test ghost is in this room!",
     "exits": {"west": "RoomLobby"},
-    "items": []
+    "items": [],
+    "ghost": test_ghost,
+    "ghost_in_room": True
 }
 
 room_dining = {
@@ -62,7 +69,8 @@ covers most of the room and can fit ten people. Smashed cutlery litters the tabl
     #condition: """A ghostly figure sits at the head of the table, he seems to be eating something but there is nothing on his plate.
     #             Something tells you that you won't be getting into the kitchen until this man has been dealt with."""
     "exits": {"north": "RoomKitchen", "east": "RoomLobby"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_kitchen = {
@@ -74,7 +82,8 @@ of the rest of the house. There is a weird small of gas in the room and you feel
 to turn on a light switch... that would be if the mansion had working electricity in the first place.""",
     #condition: "<Ghost here>"
     "exits": {"south": "RoomDining"},
-    "items": []
+    "items": [item_test_cookies],
+    "ghost_in_room": False
 }
 
 room_landing_centre = {
@@ -86,7 +95,8 @@ To your tight, a dim lighted lantern hangs.
 A sign of life in this arid dwelling?
 A large, grande, wooden door centres the landing leading to the master bedroom, where the most affluent used to slumber.""",
     "exits": {"downstairs": "RoomLobby", "north": "RoomMasterBedroom", "east": "RoomLandingRight", "west": "RoomLandingLeft"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_landing_left = {
@@ -96,7 +106,8 @@ The door to the storage room in front of you has a beaten down, rusty lock hangi
 The children’s room is opposite and a slight pink glow radiates from the inside.
 The atmosphere feels very sombre and gloomy.""",
     "exits": {"east": "RoomLandingCentre", "north": "RoomStorage", "south": "RoomChildBedroom"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_landing_right = {
@@ -107,7 +118,8 @@ you are standing by the bathroom, a place that seems perfect for wicked dead sou
 There is a strange, medieval painting on the wall opposite to the bathroom, bigger than the rest.
 It’s captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
     "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom", "south": "RoomHidden"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_master_bedroom = {
@@ -118,7 +130,8 @@ The large windows next to the magnificent four poster bed overlook the overgrown
 An aged chest lies at the foot of the bed wrapped around tightly in untouched chains clamped with an ancient lock.
 In the corner of the room is a dressing table with a dust-covered mirror and broken chair.""",
     "exits": {"south": "RoomLandingCentre", "east": "RoomBathroom"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_library = {
@@ -130,7 +143,8 @@ An armchair ripped to shreds and a coffee table, with one leg short are situated
 You are surrounded by information that could be helpful to complete your mission.
 """,
     "exits": {"south": "RoomLandingLeft"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_child_bedroom = {
@@ -142,7 +156,8 @@ A rocking chair and wooden chair sway to the melody.
 The big window is plastered off but a pink aura is present in the room illuminating the space.
 """,
     "exits": {"north": "RoomLandingLeft"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_bathroom = {
@@ -154,7 +169,8 @@ The bath tub is filled with a suspicious, unfamiliar blue viscous substance.
 The sound of the dripping tap breaks the silence in the choking and claustrophobic air.
 """,
     "exits": {"south": "RoomLandingRight", "west": "RoomMasterBedroom"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 room_hidden = {
@@ -163,7 +179,8 @@ room_hidden = {
 Right in front of you is the Ghost-Busters team tied to each other back-to-back.
 Free them so that they enjoy their pizza and you can get your tip!""",
     "exits": {"north": "RoomLandingRight"},
-    "items": []
+    "items": [],
+    "ghost_in_room": False
 }
 
 rooms = {

@@ -199,6 +199,24 @@ def print_inv_menu(inventory):
     print("EXIT this menu.")
     print("What do you want to do?")
 
+def print_combat_menu(inventory, ghost):
+    print("")
+    print(ghost["name"] + " has " + str(ghost["hp"]) + " health.")
+    print("Your sanity is at " + str(sanity) + "%.")
+    print("")
+    print("You can: ")
+    print("FIGHT to attack the ghost with your weapon.")
+    print("EXAMINE to look at the ghost more closely.")
+    for item in inventory:
+        print("USE " + str.upper(item["id"]) + " to try and use " + item["name"] + ".")
+    print("TALK to try and speak to the ghost.")
+    print("RUN to attempt escape!")
+    print("What do you want to do?")
+
+
+
+
+
 def is_valid_exit(exits, chosen_exit):
     """This function checks, given a dictionary "exits" (see map.py) and
     a players's choice "chosen_exit" whether the player has chosen a valid exit.
@@ -269,8 +287,18 @@ def execute_command(command):
             gamestate = 0
             main()
 
+
+
     else:
         print("This makes no sense.")
+
+def execute_combat_command(command, ghost):
+
+    if 0 == len(command):
+        return
+
+    if command[0] == "fight":
+
 
 def execute_approach(npc_name):
     global current_room
@@ -288,11 +316,18 @@ def execute_go(direction):
     """
 
     global current_room
+    global gamestate
     if is_valid_exit(current_room["exits"], direction) == True:
         new_room = move(current_room["exits"], direction)
         if "on_enter" in new_room and not new_room["on_enter"](new_room):
             return
         current_room = new_room
+        if current_room["ghost_in_room"] == True:
+            print("")
+            print(current_room["condition"])
+            print("")
+            gamestate = 2
+
     else:
         print("You cannot go that way.")
 
@@ -369,6 +404,16 @@ def inv_menu(inventory):
 
     return normalised_user_input
 
+def combat_menu(inventory, ghost):
+
+    print_combat_menu(inventory, ghost)
+
+    user_input = input("> ")
+
+    normalised_user_input = normalise_input(user_input)
+
+    return normalised_user_input
+
 def move(exits, direction):
     """This function returns the room into which the player will move if, from a
     dictionary "exits" of avaiable exits, they choose to move towards the exit
@@ -385,6 +430,14 @@ def move(exits, direction):
     # Next room to go to
     play_sound("door_open.wav")
     return rooms[exits[direction]]
+
+def enter_combat(ghost):
+
+    print(ghost["name"] + " approaches!")
+    if ghost["player_escaped"] == False:
+        print(ghost["intro"])
+    elif ghost["player_escaped"] == True:
+        print(ghost["intro2"])
 
 def save_state():
     state = [current_room, rooms]
@@ -426,6 +479,20 @@ def main():
         command = inv_menu(inventory)
 
         execute_command(command)
+
+    while gamestate == 2:
+
+        current_ghost = current_room["ghost"]
+
+        enter_combat(current_ghost)
+
+        combat_menu(inventory, current_ghost)
+
+        command = combat_menu(inventory, current_ghost)
+
+        execute_combat_command(command, current_ghost)
+
+
         
         
 

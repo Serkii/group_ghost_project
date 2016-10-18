@@ -23,11 +23,22 @@ item_pizza = {
 
 item_proton_gun = {
 	
-	"id": "proton gun",
+	"id": "protongun",
 
 	"name": "a proton gun",
 
 	"desc": "DESCRIPTION",
+
+	"movable": True
+}
+
+item_test_cookies = {
+
+	"id": "cookies",
+
+	"name": "a packet of cookies",
+
+	"desc": "These are for testing combat. Take them to the test ghost.",
 
 	"movable": True
 }
