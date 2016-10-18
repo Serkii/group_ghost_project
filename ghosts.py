@@ -23,8 +23,8 @@ test_ghost = {
 
 	"damage_text": "Your shot hits the test ghost! It hurts him a bit.",
 
-	"talk1": "I WILL NOT BACK DOWN FOR ANYTHING! EXCEPT COOKIES, MAYBE.",
+	"onhit_text": "The ghost punches you in the face, and giggles to itself.",
 
-	"talk2": "I REFUSE TO LEAVE EVEN NOW, UNTIL YOU SAY THE PHRASE WRITTEN ON ME."
+	"death_text": "The ghost exclaims a surprisingly deadpan 'ouch', then falls over dead. Was it really a ghost?"
 	
 }

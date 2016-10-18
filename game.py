@@ -4,6 +4,7 @@ from items import *
 from gameparser import *
 from sound import *
 from npc import *
+import random
 import pickle
 import sys
 import time
@@ -292,12 +293,74 @@ def execute_command(command):
     else:
         print("This makes no sense.")
 
-def execute_combat_command(command, ghost):
+def execute_combat_command(command, ghost, inventory, room):
+
+    global sanity
 
     if 0 == len(command):
         return
 
     if command[0] == "fight":
+        if item_proton_gun in inventory:
+            player_combat_skill = 7
+            player_attack_power = player_combat_skill + random.randrange(1, 13)
+            ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
+            if player_attack_power > ghost_attack_power:
+                print(ghost["damage_text"])
+                ghost["hp"] = ghost["hp"] - 10
+                if ghost["hp"] == 0:
+                    print(ghost["death_text"])
+                    room["ghost_in_room"] = False
+                    gamestate = 0
+                    main()
+            elif ghost_attack_power > player_attack_power:
+                print(ghost["onhit_text"])
+                sanity = sanity - 10
+                if sanity == 0:
+                    gamestate = 3
+                    main()
+        else:
+            print("You have no weapon that can harm a ghost!")
+            print(ghost["onhit_text"])
+            sanity = sanity - 10
+            if sanity == 0:
+                gamestate = 3
+                main()
+
+    elif command[0] == "examine":
+        print(ghost["desc"])
+
+    elif command[0] == "use":
+        print("PLACEHOLDER")
+
+    elif command[0] == "talk":
+        print("conversation stuff goes here")
+
+    elif command[0] == "run":
+        player_escape = random.randrange(1, 13)
+        ghost_catch = random.randrange(1, 13)
+        if ghost_catch > player_escape:
+            print("You failed to escape!")
+            print(ghost["onhit_text"])
+            sanity = sanity - 10
+            if sanity >= 0:
+                gamestate = 3
+        elif player_escape >= ghost_catch:
+            print("You escape, but which way?")
+            for direction in current_room["exits"]:
+                # Print the exit name and where it leads to
+                print_exit(direction, exit_leads_to(current_room["exits"], direction))
+                user_input = input("> ")
+                normalised_user_input = normalise_input(user_input)
+                execute_go(normalised_user_input)
+                gamestate = 0
+
+
+
+
+
+
+
 
 
 def execute_approach(npc_name):
@@ -490,7 +553,11 @@ def main():
 
         command = combat_menu(inventory, current_ghost)
 
-        execute_combat_command(command, current_ghost)
+        execute_combat_command(command, current_ghost, inventory, current_room)
+
+    while gamestate == 3:
+        print("YOU ARE DEAD. This is a placeholder death screen, to be updated later.")
+        break
 
 
         
