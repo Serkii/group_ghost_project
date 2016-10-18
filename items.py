@@ -10,13 +10,37 @@ item_camera = {
 	
 }
 
-item_pizza = {
+item_pizza1 = {
 
-	"id": "pizza",
+	"id": "pizza1",
 
-	"name": "the pizza",
+	"name": "Margarita Pizzas",
 
-	"desc": "desc to be added later",
+	"desc": "Two of the pizzas you brought with you, there is no one in the world who doesn’t enjoy a good cheese and tomato medley.",
+
+	"movable": True
+}
+
+}
+
+item_pizza2 = {
+
+	"id": "pizza1",
+
+	"name": "Hawaiian Pizza",
+
+	"desc": "A large pizza with a typical cheese and tomato base, ham and pineapple slices are scattered around the pizza, taking in the smell makes you water at the mouth.",
+
+	"movable": True
+}
+
+item_garlic = {
+
+	"id": "Garlic",
+
+	"name": "Garlic",
+
+	"desc": "A side of garlic bread included with the order you’re to deliver, it is said that garlic has properties that help defend against certain supernatural aspirations, although I doubt your customers would be too happy if you lost them.",
 
 	"movable": True
 }
