@@ -583,11 +583,13 @@ def execute_use(item_id, ghost, room):
 def ghost_peace(ghost, room):
 
     global gamestate
+    global inventory
     
     print(ghost["peace_text"])
     ghost["peace_condition_met"] = True
     room["ghost_in_room"] = False
     gamestate = GameState.main
+    give_loot(ghost)
     main()
         
 def menu(exits, room_items, inv_items):
@@ -620,6 +622,12 @@ def inv_menu(inventory):
 
     return normalised_user_input
 
+def give_loot(ghost):
+    global inventory
+    if "loot" in ghost:
+        print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
+        inventory += ghost["loot"]
+
 def combat_menu(inventory, ghost, room):
 
     global sanity
@@ -642,6 +650,7 @@ def combat_menu(inventory, ghost, room):
             print(ghost["death_text"])
             room["ghost_in_room"] = False
             gamestate = GameState.main
+            give_loot(ghost)
             main()
     else:
         gamestate = GameState.dead
@@ -675,7 +684,9 @@ def enter_combat(ghost):
 
 def save_state():
     global sanity
-    state = [current_room, rooms, sanity]
+    global total_time
+    total_time = time.time() - start_time
+    state = [current_room, rooms, sanity, total_time]
     save_file = open(SAVE_FILE, "wb")
     pickle.dump(state, save_file)
     save_file.close()
@@ -685,12 +696,14 @@ def load_state():
     global sanity
     global rooms
     global gamestate
+    global total_time
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
     rooms = state[1]
     current_room = state[0]
     sanity = state[2]
+    start_time = time.time() - state[3]
     calculate_stats()
     gamestate = GameState.main
 
@@ -774,5 +787,6 @@ if __name__ == "__main__":
     	attack_multiplier = 100.0
     print_intro(player_name)
     gamestate = GameState.main
+    start_time = time.time()
     save_state()
     main()

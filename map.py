@@ -29,7 +29,7 @@ of the second floor.""",
     #condition: "A strong ghostly aura blocks you from climbing the stairs"
     "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": "lobby_on_enter",
-    "items": [item_proton_gun],
+    "items": [item_proton_gun, item_walkie_talkie],
     "ghost_in_room": False
 }
 
