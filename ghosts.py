@@ -2,6 +2,7 @@ from items import *
 
 killed_ghost_count = 0
 
+
 ghost_dog = {
 
 	"id": "ghostdog",

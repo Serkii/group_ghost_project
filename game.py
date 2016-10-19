@@ -66,7 +66,7 @@ def stairs_permission_check(landing):
 def calculate_hp():
 	hp = 0
 	for room in rooms.values():
-		if "ghost" in room:
+		if room["ghost"]:
 			hp += room["ghost"]["hp"]
 	return hp
 
@@ -730,6 +730,23 @@ def enter_combat(ghost):
     elif ghost["player_escaped"] == True:
         print(ghost["intro2"])
 
+def endgame():
+
+    global start_time
+    
+    total_time = time.time() - start_time
+
+    total_hp = calculate_hp()
+
+    print("You beat the game in " + str(int(total_time)) + " seconds!")
+
+    if total_hp > 2050 and total_time < 300:
+        print("GOOD END")
+    elif total_hp > 0:
+        print("NEUTRAL END")
+    else:
+        print("BAD END")
+
 def save_state():
     global sanity
     global total_time
@@ -761,6 +778,8 @@ def main():
     #print_intro("PLACEHOLDER NAME")
     # Main game loop
     while gamestate == GameState.main:
+
+        endgame()
 
     
         # Display game status (room description, inventory etc.)
