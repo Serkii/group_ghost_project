@@ -1,12 +1,13 @@
 from items import *
 from npc import *
 from ghosts import *
+from sound import *
 
 #Added some conditions that need to be implemented into the code
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
-    # *play sound*
+    play_sound("door_slam.wav")
     print("The front door slams shut behind you!")
     return True
 

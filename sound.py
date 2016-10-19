@@ -1,7 +1,7 @@
 #import pygame
 
 SOUND_PATH = "./sounds/"
-sound_files = ["door_open.wav"]
+sound_files = ["door_open.wav", "door_slam.wav"]
 loaded_sounds = {}
 
 def load_sounds():

@@ -71,7 +71,7 @@ item_familytree = {
 
 	"name": "A picture of family tree",
 
-	"desc": "The family tree dates back to the 18th century, but the bottom part of the tree has been teared away. The contents of the tree are : WIP",
+	"desc": "The family tree dates back to the 18th century. Almost all the names in the tree has been blacked out, but one name is clearly visible: Kirill Pembroke. "
 
 	"movable": True
 

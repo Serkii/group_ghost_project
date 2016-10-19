@@ -557,6 +557,7 @@ def main():
 
     while gamestate == 3:
         print("YOU ARE DEAD. This is a placeholder death screen, to be updated later.")
+        print("Maybe you should be more careful next time.")
         break
 
 
