@@ -25,7 +25,7 @@ it's hard to make out the original colour of the walls what with all the graffit
 applied to it. Your moped purrs' and waits on standby for your return, once the 
 pizzas have been delivered of course.""",
     #condition: You should not be able to return to this room once entering the lobby
-    "exits": {"north": "RoomLobby"},
+    "exits": {"inside": "RoomLobby"},
     "items": [],
     "ghost_in_room": False
 }
