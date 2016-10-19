@@ -272,6 +272,8 @@ ghost_Lady = {
 	"onhit_text": "The Lady rises from her seat and scratches you with her nails.",
 
 	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone.",
+
+	"loot": [item_brooch],
 	
 	"conversation" : {
 		"speech" :"What reason do you have for entering my room uninvited?",
