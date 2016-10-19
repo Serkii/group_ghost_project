@@ -108,7 +108,32 @@ ghost_Pinkerton = {
 
 	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach.",
 	
-	
+	"conversation": {
+		"speech": "Sir Pinkerton: Why are you breaking into my house?",
+		"responses": {
+			"I am sorry.": {
+				"speech": "Sir Pinkerton: lorem ipsum",
+				"responses": {
+					"lorem ipsum": {
+						"speech": "lorem ipsum"
+					},
+					
+					"lorem ipsum2": {
+						"speech": "Ylorem ipsum"
+					}
+				}
+			},
+			"I am delivering pizza your master has ordered": {
+				"speech": "Sir Pinkerton: Why do my master has to order a pizza when he has a brilliant chef?",
+				"function": exit
+			}
+		}
+
+
+
+
+	}
+
 
 	#Located in the Dining Room
 	#Peacefully dealt with by conversing with him and explaining to him that he his dead and deducing he has been posioned.
