@@ -46,7 +46,7 @@ def converse(ghost):
 	else:
 		print("This ghost doesn't seem that interested in conversation")
 
-def hurt_player():
+def hurt_player(response, ghost):
 	global sanity
 	sanity -= 50
 	#return "test2"
