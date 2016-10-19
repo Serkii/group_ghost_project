@@ -67,11 +67,11 @@ item_test_cookies = {
 
 item_familytree = {
 	
-	"id": "familytree"
+	"id": "familytree",
 
-	"name": "A picture of family tree"
+	"name": "A picture of family tree",
 
-	"desc": "The family tree dates back to the 18th century, but the bottom part of the tree has been teared away. The contents of the tree are : WIP"
+	"desc": "The family tree dates back to the 18th century, but the bottom part of the tree has been teared away. The contents of the tree are : WIP",
 
 	"movable": True
 
@@ -79,11 +79,11 @@ item_familytree = {
 
 item_book = {
 	
-	"id": "book"
+	"id": "book",
 
-	"name": "A book"
+	"name": "A book",
 
-	"desc": "The title on the book hints it would be quite boring to read that. Instead of reading it, is there another use for that?"
+	"desc": "The title on the book hints it would be quite boring to read that. Instead of reading it, is there another use for that?",
 
 	"movable": True
 
