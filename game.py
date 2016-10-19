@@ -564,8 +564,15 @@ def main():
         execute_combat_command(command, current_ghost, inventory, current_room)
 
     while gamestate == 3:
-        print("YOU ARE DEAD. This is a placeholder death screen, to be updated later.")
+        print("YOU ARE DEAD.")
         print("Maybe you should be more careful next time.")
+        print("Do you want to play from your last save?")
+        replay = input("> ")
+        if replay == "Y":
+            load_state()
+            print("Loading last save...")
+        else:
+            print("GAME OVER")
         break
 
 
