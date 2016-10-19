@@ -272,6 +272,8 @@ ghost_Lady = {
 	"onhit_text": "The Lady rises from her seat and scratches you with her nails.",
 
 	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone.",
+
+	"loot": [item_brooch,item_ghostbook],
 	
 	"conversation" : {
 		"speech" :"What reason do you have for entering my room uninvited?",
@@ -343,7 +345,11 @@ ghost_Poltergeist = {
 
 	"onhit_text": "A Book is flung at you.",
 
-	"death_text": "The remaining books in the room fall to the ground."
+	"death_text": "The remaining books in the room fall to the ground.",
+
+	"items_wanted": [item_ghostbook],
+
+	"loot": [item_childsbook],
 	
 	#Located in the Library
 	#Difficult to deal with via combat, requires some sort of item
@@ -379,7 +385,9 @@ ghost_toys = {
 
 	"onhit_text": "A Soldier clambers are your leg and stabs at your thigh with his sword",
 
-	"death_text": "The remaining soldiers all fall down. The Ballerina still spins in the music box, although there is no longer an audience."
+	"death_text": "The remaining soldiers all fall down. The Ballerina still spins in the music box, although there is no longer an audience.",
+
+	"items_wanted": [item_childsbook]
 	
 	#Located in the Childrens room
 	#requires a book from the Library to defeat peacefully

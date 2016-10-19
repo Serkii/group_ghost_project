@@ -135,7 +135,7 @@ An aged chest lies at the foot of the bed wrapped around tightly in untouched ch
 In the corner of the room is a dressing table with a dust-covered mirror and broken chair.""",
     "condition": "A Lady sits by the dressing table and brushes her hair whilst humming a tune.",
     "exits": {"south": "RoomLandingCentre", "east": "RoomBathroom"},
-    "items": [],
+    "items": [item_beads],
     "ghost": ghost_Lady,
     "ghost_in_room": True
 }
@@ -150,7 +150,7 @@ You are surrounded by information that may be helpful to complete your mission.
 """,
     "condition": "The books begin to rise from the ground and circle the armchair, seemingly suspended in mid-air.",
     "exits": {"south": "RoomLandingLeft"},
-    "items": [item_familytree, item_childsbook, item_ghostbook],
+    "items": [item_familytree],
     "ghost": ghost_Poltergeist,
     "ghost_in_room": True
 }
@@ -180,7 +180,7 @@ The bath tub is filled with a suspicious, unfamiliar blue viscous substance.
 The sound of the dripping tap breaks the silence in the choking and claustrophobic air.
 """,
     "exits": {"south": "RoomLandingRight", "west": "RoomMasterBedroom"},
-    "items": [],
+    "items": [item_pills],
     "ghost_in_room": False,
     "ghost": ""
 }
