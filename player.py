@@ -7,3 +7,6 @@ global current_room
 current_room = rooms["RoomOutside"]
 
 sanity = 100
+
+defense_multiplier = 1.0
+attack_multiplier = 1.0
