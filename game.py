@@ -19,8 +19,9 @@ class GameState(Enum):
 SAVE_FILE = "save_data"
 
 def clear_screen():
-    for i in range(1, 101):
-        print("")
+    
+    print("\n"*100)
+    
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
