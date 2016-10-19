@@ -31,7 +31,7 @@ def lobby_on_enter(lobby):
 
 def stairs_permission_check(landing):
     global attack_multiplier
-    if killed_ghost_count == 3:
+    if killed_ghost_count >= 3:
     	return True
     print("")
     print("An invisible, ghostly force, unimaginably cold to the touch, prevents you from climbing the staircase.")
