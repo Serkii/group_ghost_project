@@ -709,6 +709,8 @@ def main():
 if __name__ == "__main__":
     load_sounds()
     player_name = insert_name()
+    if player_name == "debug":
+    	sanity = 9999999999999
     print_intro(player_name)
     gamestate = GameState.main
     save_state()
