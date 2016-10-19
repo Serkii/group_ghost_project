@@ -383,11 +383,8 @@ def execute_combat_command(command, ghost, inventory, room):
 
     elif command[0] == "use":
         if len(command) > 1:
-            item_matches = [item for item in inventory if item["id"] == command[1] and "action" in item]
-            if item_matches:
-            		pass
-            else:
-                print("You can't use that!")
+            execute_use(command[1], ghost, room)
+
         else:
             print("Use what?")
 
@@ -494,13 +491,35 @@ def execute_examine_room(item_id):
 
 def execute_examine_inv(item_id):
 
-    global inventory
-
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])
     else:
         print("You cannot examine that.")
+
+def execute_use(item_id, ghost, room):
+
+    
+
+    item_matches = [item for item in inventory if item["id"] == item_id]
+    if item_matches:
+        if gamestate == GameState.fight:
+            if item_matches[0] in ghost["items_wanted"]:
+                ghost_peace()
+
+
+    else:
+        print("You cannot use that.")
+
+def ghost_peace(ghost, room):
+
+    global gamestate
+    
+    print(ghost["peace_text"])
+    ghost["peace_condition_met"] = True
+    room["ghost_in_room"] = False
+    gamestate = GameState.main
+    main()
         
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
