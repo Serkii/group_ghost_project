@@ -1,16 +1,23 @@
-#import pygame
+import sys
 
-SOUND_PATH = "./sounds/"
-sound_files = ["door_open.wav", "door_slam.wav"]
-loaded_sounds = {}
+if "pygame" in sys.modules:
+	import pygame
 
-def load_sounds():
-	print("Loading sound files...")
-	#pygame.init()
-	#for name in sound_files:
-	#	loaded_sounds[name] = pygame.mixer.Sound(SOUND_PATH + name)
-	print("Done loading sounds")
+	SOUND_PATH = "./sounds/"
+	sound_files = ["door_open.wav", "door_slam.wav"]
+	loaded_sounds = {}
 
-def play_sound(name):
-	pass
-	#loaded_sounds[name].play()
+	def load_sounds():
+		print("Loading sound files...")
+		pygame.init()
+		for name in sound_files:
+			loaded_sounds[name] = pygame.mixer.Sound(SOUND_PATH + name)
+		print("Done loading sounds")
+
+	def play_sound(name):
+		loaded_sounds[name].play()
+else:
+	def load_sounds():
+		print("Sound disabled. Please install pygame.")
+	def play_sound(name):
+		pass
