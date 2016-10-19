@@ -40,7 +40,9 @@ item_garlic = {
 
 	"desc": "A side of garlic bread included with the order you are to deliver. It is said that garlic has properties that help defend against certain supernatural aspirations, although I doubt your customers would be too happy if you lost them.",
 
-	"movable": True
+	"movable": True,
+	
+	"defense": 1.5
 }
 
 item_proton_gun = {
