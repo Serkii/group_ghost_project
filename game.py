@@ -322,19 +322,20 @@ def execute_combat_command(command, ghost, inventory, room):
         if item_proton_gun in inventory:
             player_combat_skill = 7
             player_attack_power = player_combat_skill + random.randrange(1, 13)
+            player_attack_power *= attack_multiplier
             ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
             if player_attack_power > ghost_attack_power:
                 print(ghost["damage_text"])
-                ghost["hp"] = ghost["hp"] - 10
+                ghost["hp"] -= 10 * attack_multiplier
             elif ghost_attack_power > player_attack_power:
                 print(ghost["onhit_text"])
-                sanity = sanity - 10
+                sanity -= 10 / defense_multiplier
             elif player_attack_power == ghost_attack_power:
                 print(ghost["name"] + " avoids the attack!")
         else:
             print("You have no weapon that can harm a ghost!")
             print(ghost["onhit_text"])
-            sanity = sanity - 10
+            sanity -= 10 * defense_multiplier
 
     elif command[0] == "examine":
         print(ghost["desc"])
@@ -412,6 +413,7 @@ def execute_take(item_id):
     if item_matches:
         current_room["items"].remove(item_matches[0])
         inventory.append(item_matches[0])
+        calculate_stats()
     else:
         print("You cannot take that.")
     
@@ -425,6 +427,7 @@ def execute_drop(item_id):
     if item_matches:
         inventory.remove(item_matches[0])
         current_room["items"].append(item_matches[0])
+        calculate_stats()
     else:
         print("You cannot drop that.")
 
@@ -594,7 +597,7 @@ def main():
         print("Maybe you should be more careful next time.")
         print("Do you want to play from your last save? Y/N")
         replay = input("> ")
-        if replay == "Y":
+        if replay[0].upper() == "Y":
             load_state()
             print("Loading last save...")
         else:
