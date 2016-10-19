@@ -591,7 +591,7 @@ def main():
         print("Maybe you should be more careful next time.")
         print("Do you want to play from your last save? Y/N")
         replay = input("> ")
-        if replay == "Y":
+        if replay[0].upper() == "Y":
             load_state()
             print("Loading last save...")
         else:
