@@ -320,21 +320,21 @@ def execute_combat_command(command, ghost, inventory, room):
 
     if command[0] == "fight":
         if item_proton_gun in inventory:
-            player_combat_skill = 7
+            player_combat_skill = 7 * attack_multiplier
             player_attack_power = player_combat_skill + random.randrange(1, 13)
             ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
             if player_attack_power > ghost_attack_power:
                 print(ghost["damage_text"])
-                ghost["hp"] = ghost["hp"] - 10
+                ghost["hp"] -= 10 * attack_multiplier
             elif ghost_attack_power > player_attack_power:
                 print(ghost["onhit_text"])
-                sanity = sanity - 10
+                sanity -= 10 / defense_multiplier
             elif player_attack_power == ghost_attack_power:
                 print(ghost["name"] + " avoids the attack!")
         else:
             print("You have no weapon that can harm a ghost!")
             print(ghost["onhit_text"])
-            sanity = sanity - 10
+            sanity -= 10 * defense_multiplier
 
     elif command[0] == "examine":
         print(ghost["desc"])
