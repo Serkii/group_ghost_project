@@ -1,5 +1,29 @@
 from combatscenarios import *
 
+def converse(ghost):
+	print("You approach %s." % npc["name"])
+	if "conversation" in ghost:
+		do_response(npc["conversation"])
+	else:
+		print("This ghost doesn't seem that interested in conversation")
+	
+def do_response(response):
+	print(response["speech"])
+	if "function" in response:
+		resp = response["function"]()
+		if resp:
+			do_response(response["responses"][resp])
+			return
+	if "responses" in response:
+		user_resp = "";
+		while True:
+			print("\n".join([" - " + r for r in response["responses"].keys()]))
+			user_resp = input("> ")
+			if user_resp in response["responses"]:
+				do_response(response["responses"][user_resp])
+				return
+			print("Could you repeat that? (Note: This part is case-sensitive because I'm lazy)")
+
 test_ghost = {
 
 	"id": "testghost",
@@ -54,10 +78,33 @@ ghost_dog = {
 
 	"onhit_text": "The Dog pounces at you, jaw open, it bites down on your leg and you barely manage to kick him back.",
 
-	"death_text": "The Doberman lets out a constant whelp and dives towards the window, you expect the glass to smash but instead the Doberman phases through it and disappears into the garden. You doubt you will see him again."
+	"death_text": "The Doberman lets out a constant whelp and dives towards the window, you expect the glass to smash but instead the Doberman phases through it and disappears into the garden. You doubt you will see him again.",
 	
 	#Located in the Living Room
 	#Need a peaceful way of dealing with him, probably feed him an item (maybe one of the pizza's?)
+	"conversation": {
+		"speech": "Hello, I'm a ghost!",
+		"responses": {
+			"hello": {
+				"speech": "Nice to meet you! What's your favourite colour?",
+				"responses": {
+					"red": {
+						"speech": "That's a nice colour!"
+					},
+					
+					"blue": {
+						"speech": "You have poor taste."
+					}
+				}
+			},
+			"eeeww": {
+				"speech": """How dare you insult me, puny human!
+
+*The ghost slays you with a single touch*""",
+				"function": exit
+			}
+		}
+	}
 }
 
 ghost_Pinkerton = {
