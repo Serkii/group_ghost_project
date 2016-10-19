@@ -124,9 +124,11 @@ item_brooch = {
 
 	"desc": "A worn silver broach, the picture of a women is carved in stone in the centre with small encrusted diamonds surrounding it",
 
-	"movable": True
+	"movable": True,
 
-	#Dropped by Pinkerton, Useable against the lady of the house
+	"defense": 0.3
+
+	#Dropped by the lady of the house
 
 }
 
@@ -166,7 +168,10 @@ item_beads = {
 
 	"desc": "A selection of beads are strung together in a line, folk tales tell of how these can be used to protect against the supernatural.",
 
-	"movable": True
+	"movable": True,
+
+	"defense": 0.5,
+	"attack" : 2
 
 	#Found in the Master Bedroom, Increases Damage Resistance
 
@@ -211,7 +216,6 @@ item_poison = {
 	"movable": True,
 
 	"attack": 2
-
 
 	#Found in the Childrens room, Useable against Julia
 

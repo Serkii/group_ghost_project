@@ -1,3 +1,5 @@
+import time
+
 try:
 	import pygame
 
@@ -7,18 +9,24 @@ try:
 
 	def load_sounds():
 		print("Loading sound files...")
-		pygame.init()
-		pygame.mixer.init(44100, -16, 1, 1024)
+		pygame.mixer.init(44100, -16, 2, 4096)
+		#time.sleep(10)
+		#pygame.init()
 		for name in sound_files:
 			loaded_sounds[name] = pygame.mixer.Sound(SOUND_PATH + name)
 		print("Done loading sounds")
 
-	def play_sound(name):
-		loaded_sounds[name].play()
+	def play_sound(name, loop=0):
+		loaded_sounds[name].play(loop)
 		
-	def play_music(name):
-		pygame.mixer.music.load(SOUND_PATH + name)
-		pygame.mixer.music.play(10000) # infinity
+	def play_music(stype):
+		if stype == "distant":
+			loaded_sounds["music_box_distant.wav"].set_volume(1.0)
+			loaded_sounds["music_box.wav"].set_volume(0.0)
+		else:
+			loaded_sounds["music_box_distant.wav"].set_volume(0.0)
+			loaded_sounds["music_box.wav"].set_volume(1.0)
+		 
 except:
 	def load_sounds():
 		print("Sound disabled. Please install pygame.")
