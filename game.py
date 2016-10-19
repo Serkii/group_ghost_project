@@ -19,9 +19,9 @@ class GameState(Enum):
 SAVE_FILE = "save_data"
 
 def clear_screen():
-    for i in range(1, 101)
-    print("")
-    
+    for i in range(1, 101):
+        print("")
+
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
     play_sound("door_slam.wav")
@@ -97,17 +97,44 @@ Still your company has a delivery in 30 minutes guarantee and since the order ha
 
 Also there was an odd note included with the order: 'Send help, ghosts about'
 
-""".format(name)
+"""
+
+    title = """
+
+::::::::::. ::::::::::::::::::::: :::.     
+ `;;;```.;;;;;;'`````;;;'`````;;; ;;`;;    
+  `]]nnn]]' [[[    .n[['    .n[[',[[ '[[,  
+   $$$""    $$$  ,$$P"    ,$$P" c$$$cc$$$c 
+   888o     888,888bo,_ ,888bo,_ 888   888,
+   YMMMb    MMM `""*UMM  `""*UMM YMM   ""` 
+
+  ::   .:   :::.      ...    ::::::.    :::.::::::::::::
+ ,;;   ;;,  ;;`;;     ;;     ;;;`;;;;,  `;;;;;;;;;;;''''
+,[[[,,,[[[ ,[[ '[[,  [['     [[[  [[[[[. '[[     [[     
+"$$$\"""$$$c$$$cc$$$c $$      $$$  $$$ "Y$c$$     $$     
+ 888   "88o888   888,88    .d888  888    Y88     88,    
+ MMM    YMMYMM   ""`  "YmmMMMM""  MMM     YM     MMM  
+
+
+
+""" 
+
+
+    
 
     #for char in text:
         #time.sleep(0.01)
         #print(char, end="")
         #sys.stdout.flush()
-    
-    print("")
+
+    clear_screen()
+    print(text)
     if(input("Do you accept this order?: " ))== "no":
         print("GAME ENDS")
         raise SystemExit
+    else:
+        clear_screen()
+        print(title)
     
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -337,6 +364,7 @@ def execute_command(command):
 
 
     elif command[0] == "inv":
+        clear_screen()
         gamestate = GameState.inventory
 
     elif command[0] == "exit":
@@ -498,12 +526,14 @@ def execute_examine_room(item_id):
 
 def execute_examine_inv(item_id):
 
-    print("")
+    clear_screen()
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])
+        print()
     else:
         print("You cannot examine that.")
+        print()
 
 def execute_use(item_id, ghost, room):
 
@@ -647,7 +677,6 @@ def main():
     
         # Display game status (room description, inventory etc.)
         print_room(current_room)
-        print_inventory_items(inventory)
 
         # Show the menu with possible actions and ask the player
         command = menu(current_room["exits"], current_room["items"], inventory)
@@ -657,7 +686,7 @@ def main():
 
     while gamestate == GameState.inventory:
 
-        print("")
+        
         print_inventory_items(inventory)
 
         command = inv_menu(inventory)
