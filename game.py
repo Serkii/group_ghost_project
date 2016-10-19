@@ -277,9 +277,11 @@ def execute_command(command):
 
     elif command[0] == "save":
         save_state()
+        print("Saving progress...")
 
     elif command[0] == "load":
         load_state()
+        print("Loading saves...")
 
     elif command[0] == "examine":
         if gamestate == GameState.main:
