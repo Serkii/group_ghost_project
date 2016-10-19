@@ -67,9 +67,9 @@ item_familytree = {
 
 }
 
-item_book = {
+item_childsbook = {
 	
-	"id": "book",
+	"id": "childsbook",
 
 	"name": "A Childrens book",
 
@@ -77,10 +77,23 @@ item_book = {
 
 	"movable": True
 
-	#used against the toy soldiers, place in the bookshelf
+	#found in library, used against the toy soldiers, place in the bookshelf in the childrens room.
 
 }
 
+item_ghostbook = {
+	
+	"id": "occultbook",
+
+	"name": "Occult_Book",
+
+	"desc": "Flicking through the pages you see various pages detailing how to combat ghosts, this might come in handy.",
+
+	"movable": True
+
+	#found in library, increases damage output
+
+}
 item_dogcollar = {
 
 	"id": "dog_collar",
@@ -127,13 +140,41 @@ item_ham = {
 
 	"id": "ham",
 
-	"name": "Slices of Ham",
+	"name": "Slices_of_Ham",
 
 	"desc": "Although the Mansion is ages old the ham looks surprisingly fresh, it has a ghostly chill when holding but you are hungry and food always calms you down",
 
 	"movable": True
 
 	#Found in the Kitchen, Recovers Sanity
+
+}
+
+item_beads = {
+
+	"id": "beads",
+
+	"name": "Prayer Beads",
+
+	"desc": "A selection of beads are strung together in a line, folk tales tell of how these can be used to protect against the supernatural.",
+
+	"movable": True
+
+	#Found in the Master Bedroom, Increases Damage Resistance
+
+}
+
+item_pills = {
+	
+	"id": "pills",
+
+	"name": "Pills",
+
+	"desc": "Anti-psychotics, under normal circumstances you wouldn’t even consider taking these, but these aren’t exactly everyday circumstances.",
+
+	"movable": True
+
+	#Found in the Bathroom, Recovers Sanity
 
 }
 
