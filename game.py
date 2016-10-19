@@ -49,7 +49,7 @@ def calculate_stats():
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
-    play_sound("door_slam.wav")
+    play_sound("door_slam.wav", 0)
     print("The front door slams shut behind you!")
     return True
 
@@ -722,7 +722,7 @@ def move(exits, direction):
     """
 
     # Next room to go to
-    play_sound("door_open.wav")
+    play_sound("door_open.wav", 0)
     return rooms[exits[direction]]
 
 def enter_combat(ghost):

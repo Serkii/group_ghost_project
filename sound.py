@@ -16,7 +16,7 @@ try:
 			loaded_sounds[name] = pygame.mixer.Sound(SOUND_PATH + name)
 		print("Done loading sounds")
 
-	def play_sound(name, loop=0):
+	def play_sound(name, loop):
 		loaded_sounds[name].play(loop)
 		
 	def play_music(stype):
