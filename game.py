@@ -304,6 +304,7 @@ def execute_command(command):
 def execute_combat_command(command, ghost, inventory, room):
 
     global sanity
+    global gamestate
 
 
     if 0 == len(command):
@@ -350,8 +351,9 @@ def execute_combat_command(command, ghost, inventory, room):
                 print_exit(direction, exit_leads_to(current_room["exits"], direction))
                 user_input = input("> ")
                 normalised_user_input = normalise_input(user_input)
-                execute_go(normalised_user_input)
+                execute_go(normalised_user_input[1])
                 gamestate = 0
+                main()
 
 
 
