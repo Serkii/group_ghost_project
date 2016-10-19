@@ -119,7 +119,7 @@ cobwebs clothe the ceiling and the red carpet that was once a luxurious,soft pos
 you are standing by the bathroom, a place that seems perfect for wicked dead souls to reside in.
 There is a strange, medieval painting on the wall opposite to the bathroom, bigger than the rest.
 It's captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
-    "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom", "south": "RoomHidden"},
+    "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom"},
     "items": [],
     "ghost_in_room": False,
     "ghost": ""
