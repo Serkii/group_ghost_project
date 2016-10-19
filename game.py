@@ -560,9 +560,14 @@ def execute_use(item_id, ghost, room):
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         if gamestate == GameState.fight:
-            if item_matches[0] in ghost["items_wanted"]:
+            if item_matches[0] in ghost.get("items_wanted", []):
                 inventory.remove(item_matches[0])
                 ghost_peace(ghost, room)
+            else:
+                print("The ghost doesn't seem interested in that.")
+                print(ghost["onhit_text"])
+                sanity -= 10 * defense_multiplier
+
                 
 
         if item_matches[0] == item_laudanum:
