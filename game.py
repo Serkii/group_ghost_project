@@ -385,7 +385,7 @@ def execute_combat_command(command, ghost, inventory, room):
         if len(command) > 1:
             item_matches = [item for item in inventory if item["id"] == command[1] and "action" in item]
             if item_matches:
-            
+            		pass
             else:
                 print("You can't use that!")
         else:
