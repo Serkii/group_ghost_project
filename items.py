@@ -239,3 +239,16 @@ item_platter = {
 
 
 }
+
+item_cleaver = {
+	
+	"id": "cleaver",
+
+	"name": "A rusty Cleaver",
+
+	"desc": "It's a rusty meat cleaver, the edge has dulled and you wonder if this can even cut meat.",
+
+	"movable": True
+
+
+}
