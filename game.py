@@ -223,6 +223,8 @@ def print_menu(exits, room_items, inv_items):
     What do you want to do?
 
     """
+    print("Your sanity is at " + str(sanity) + "%.")
+    print("")
     print("You can:")
     print("Type INV to access inventory menu and player status.")
     # Iterate over available exits
@@ -391,11 +393,15 @@ def execute_combat_command(command, ghost, inventory, room):
             for direction in current_room["exits"]:
                 # Print the exit name and where it leads to
                 print_exit(direction, exit_leads_to(current_room["exits"], direction))
-                user_input = input("> ")
-                normalised_user_input = normalise_input(user_input)
+                
+            user_input = input("> ")
+            normalised_user_input = normalise_input(user_input)
+            if len(normalised_user_input) > 1:
                 execute_go(normalised_user_input[1])
                 gamestate = GameState.main
                 main()
+            else:
+                print("You can't do that.")
 
 
 
