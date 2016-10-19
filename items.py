@@ -210,6 +210,8 @@ item_poison = {
 
 	"movable": True
 
+	"attack" : 2
+
 	#Found in the Childrens room, Useable against Julia
 
 }
