@@ -16,6 +16,8 @@ ghost_dog = {
 	"combat_skill": 7,
 
 	"hp": 50,
+	
+	"loot": [item_dogcollar],
 
 	"peace_conditions_met": 0,
 
