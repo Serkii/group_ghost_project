@@ -18,6 +18,13 @@ class GameState(Enum):
 
 SAVE_FILE = "save_data"
 
+def calculate_hp():
+	hp = 0
+	for room in rooms.values():
+		if "ghost" in room:
+			hp += room["ghost"]["hp"]
+	return hp
+
 def converse(ghost):
 	print("You approach %s." % ghost["name"])
 	if "conversation" in ghost:
