@@ -50,7 +50,7 @@ ghost_dog = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "The Dog lets out a slight whelp and retreats back slightly, he hasn’t given up yet however.",
+	"damage_text": "The Dog lets out a slight as you blast him with your proton gun, he hasn’t given up yet however.",
 
 	"onhit_text": "The Dog pounces at you, jaw open, it bites down on your leg and you barely manage to kick him back.",
 
@@ -82,11 +82,11 @@ ghost_Pinkerton = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "Sir Pinkerton staggers back as you take the picture, however he quickly regains his posture and poises ready to attack.",
+	"damage_text": "Sir Pinkerton staggers back as you fire at him, however he quickly regains his posture and poises ready to attack.",
 
 	"onhit_text": "Sir Pinkerton picks up a knife and throws it at you.",
 
-	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether clutching at his stomach."
+	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach."
 	
 	#Located in the Dining Room
 	#Peacefully dealt with by conversing with him and explaining to him that he his dead and deducing he has been posioned.
@@ -114,7 +114,7 @@ ghost_Chef = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "The Chef staggers and grips his face in pain.",
+	"damage_text": "The Chef staggers as you fire on him and grips his face in pain.",
 
 	"onhit_text": "The Chef charges at you with his cleaver and slashes at you.",
 
