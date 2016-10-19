@@ -18,15 +18,15 @@ You are 'Player_name' a Delivery Driver for Pizza Haunt, the number one Pizza co
 also the only Pizza Company in the whole town but minor details are irrelevant.
 You and your trusty scooter had been all across town delivery all sorts of pizza's with all sorts of toppings and your shift was almost up when you receive one last order...
 
-–   2 Margarita Pizza's
-–   1 Hawaiian Pizza
-–   Garlic Bread
+2 Margarita Pizza's
+1 Hawaiian Pizza
+Garlic Bread
 
 It would normally be a simple task for once such as yourself but the address puzzles both you and your co-workers,
 the address is that of Clearview Mansion, a run-down house that hasn't seen use in over a hundred years.
 Still your company has a delivery in 30 minutes guarantee and since the order has already been paid for you better make your way over there.
 
-Also there was an odd note included with the order: “Send help, ghosts about”
+Also there was an odd note included with the order: 'Send help, ghosts about'
 
 """.format(name)
 
@@ -534,7 +534,7 @@ def load_state():
     # This is the entry point of our program
 def main():
 
-    #print_intro("PLACEHOLDER NAME")
+    print_intro("PLACEHOLDER NAME")
     # Main game loop
     while gamestate == 0:
 
