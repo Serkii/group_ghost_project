@@ -200,3 +200,16 @@ item_teddy = {
 
 }
 
+item_poison = {
+	
+	"id": "poison",
+
+	"name": "Rat_Poison",
+
+	"desc": "A green vial with a skull drawn on the side. This Toxin was clearly used to kill the residences of this house, combining this with a weapon would likely increase your damage to the ghosts.",
+
+	"movable": True
+
+	#Found in the Childrens room, Useable against Julia
+
+}
