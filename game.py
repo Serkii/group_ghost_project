@@ -531,18 +531,22 @@ def enter_combat(ghost):
         print(ghost["intro2"])
 
 def save_state():
-    state = [current_room, rooms]
+    global sanity
+    state = [current_room, rooms, sanity]
     save_file = open(SAVE_FILE, "wb")
     pickle.dump(state, save_file)
     save_file.close()
 
 def load_state():
     global current_room
+    global sanity
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
     rooms = state[1]
     current_room = state[0]
+    sanity = state[2]
+    calculate_stats()
 
     # This is the entry point of our program
 def main():

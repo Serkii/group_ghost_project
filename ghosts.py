@@ -106,7 +106,7 @@ ghost_Pinkerton = {
 
 	"onhit_text": "Sir Pinkerton picks up a knife and throws it at you.",
 
-	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach."
+	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach.",
 	
 	"conversation": {
 		"speech" : "Lorem Ipsum"
