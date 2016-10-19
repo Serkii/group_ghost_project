@@ -44,7 +44,7 @@ item_garlic = {
 
 	"id": "garlic",
 
-	"name": "Garlic",
+	"name": "Some Garlic",
 
 	"desc": "A side of garlic bread included with the order you are to deliver. It is said that garlic has properties that help defend against certain supernatural aspirations, although I doubt your customers would be too happy if you lost them.",
 
@@ -55,7 +55,7 @@ item_proton_gun = {
 	
 	"id": "proton_gun",
 
-	"name": "a proton gun",
+	"name": "A Proton Gun",
 
 	"desc": "You recognised the weapon from the movie GHOSTBUSTERS. The highly focused proton beam it fires can drain the energy of a creature.",
 
@@ -69,7 +69,7 @@ item_familytree = {
 
 	"name": "A picture of family tree",
 
-	"desc": "The family tree dates back to the 18th century. Almost all the names in the tree has been blacked out, but one name is clearly visible: Kirill Pembroke. ",
+	"desc": "The family tree dates back to the 18th century. Almost all the names in the tree has been blacked out, but one name is clearly visible: Kirill Pinkerton. ",
 
 	"movable": True
 
@@ -93,7 +93,7 @@ item_ghostbook = {
 	
 	"id": "occultbook",
 
-	"name": "Occult_Book",
+	"name": "An Occult Book",
 
 	"desc": "Flicking through the pages you see various pages detailing how to combat ghosts, this might come in handy.",
 
@@ -120,7 +120,7 @@ item_brooch = {
 
 	"id": "brooch",
 
-	"name": "Antique Brooch",
+	"name": "An Antique Brooch",
 
 	"desc": "A worn silver broach, the picture of a women is carved in stone in the centre with small encrusted diamonds surrounding it",
 
@@ -134,7 +134,7 @@ item_laudanum = {
 
 	"id": "laudanum",
 
-	"name": "Laudanum",
+	"name": "A Vial of Laudanum",
 
 	"desc": "A liquid swirls in an orange flask, the label is worn but you can just make out the word LAUDANUM on the side. It might calm your nerves but there may be side effects",
 
@@ -148,7 +148,7 @@ item_ham = {
 
 	"id": "ham",
 
-	"name": "Slices_of_Ham",
+	"name": "Slices of Ham",
 
 	"desc": "Although the Mansion is ages old the ham looks surprisingly fresh, it has a ghostly chill when holding but you are hungry and food always calms you down",
 
@@ -176,7 +176,7 @@ item_pills = {
 	
 	"id": "pills",
 
-	"name": "Pills",
+	"name": "Some Pills",
 
 	"desc": "Anti-psychotics, under normal circumstances you wouldn’t even consider taking these, but these aren’t exactly everyday circumstances.",
 
@@ -190,7 +190,7 @@ item_teddy = {
 	
 	"id": "teddy",
 
-	"name": "Teddy_Bear",
+	"name": "A Teddy Bear",
 
 	"desc": "A ruined teddy bear wearing knight armour, fluff is escaping out of the neck and arms, and the head of the bear is nowhere to be found.",
 
@@ -204,12 +204,38 @@ item_poison = {
 	
 	"id": "poison",
 
-	"name": "Rat_Poison",
+	"name": "A Vial of Rat Poison",
 
 	"desc": "A green vial with a skull drawn on the side. This Toxin was clearly used to kill the residences of this house, combining this with a weapon would likely increase your damage to the ghosts.",
 
 	"movable": True
 
 	#Found in the Childrens room, Useable against Julia
+
+}
+
+item_firepoker = {
+	
+	"id": "firepoker",
+
+	"name": "Fireplace Poker",
+
+	"desc": "A fire iron used to stoke the fireplace in the living room, it might make a good weapon.",
+
+	"movable": True
+
+
+}
+
+item_platter = {
+	
+	"id": "platter",
+
+	"name": "A Serving Platter",
+
+	"desc": "It is an ornate silver serving platter. It wouldn't look out of place in a banquet hall.",
+
+	"movable": True
+
 
 }

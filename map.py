@@ -49,7 +49,7 @@ Somehow the fire still burns.""",
     #the condition below is for test_ghost, can be removed to use above ghost condition later
     "condition": "In front of the fire a Doberman rests, when you try to focus your eyes on him he seemingly disappears.",
     "exits": {"west": "RoomLobby"},
-    "items": [item_ham],
+    "items": [item_firepoker],
     "ghost": ghost_dog,
     "ghost_in_room": True
 }
@@ -65,7 +65,7 @@ covers most of the room and can fit ten people. Smashed cutlery litters the tabl
     Something tells you that you won't be getting into the kitchen until this man has been dealt with.""",
 
     "exits": {"north": "RoomKitchen", "east": "RoomLobby"},
-    "items": [],
+    "items": [item_platter],
     "ghost": ghost_Pinkerton,
     "ghost_in_room": True
 }
@@ -80,7 +80,7 @@ to turn on a light switch... that would be if the mansion had working electricit
 
     "condition": "<Ghost here>",
     "exits": {"south": "RoomDining"},
-    "items": [],
+    "items": [item_ham],
     "ghost": ghost_Chef,
     "ghost_in_room": True
 }

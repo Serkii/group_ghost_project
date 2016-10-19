@@ -97,7 +97,7 @@ ghost_Pinkerton = {
 	"onhit_text": "Sir Pinkerton picks up a knife and throws it at you.",
 
 	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach.",
-	
+
 	"conversation": {
 		"speech": "What reason do you Have for interrupting my meal? I'd rather not have to resort to this violence.",
 		"responses": {
@@ -186,6 +186,10 @@ ghost_Chef = {
 
 	"death_text": "The Chef erupts into flame. Screaming, he dashes towards the sink, but disappears into thin air before he can reach it.",
 
+	"items_wanted": [item_dogcollar],
+
+	"loot": [item_poison],
+	
 	"conversation": {
 		"speech": "I use this poison for the rats in the house! That's it!",
 		"responses": {
