@@ -282,8 +282,11 @@ def execute_command(command):
             print("Drop what?")
 
     elif command[0] == "save":
-        save_state()
-        print("Saving progress...")
+        if current_room["ghost_in_room"]:
+            print("You cannot save here! There are ghosts nearby.")
+        else:
+            save_state()
+            print("Saving progress...")
 
     elif command[0] == "load":
         load_state()
