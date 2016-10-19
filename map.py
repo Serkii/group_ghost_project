@@ -109,7 +109,8 @@ The atmosphere feels very sombre and gloomy.""",
     "exits": {"east": "RoomLandingCentre", "north": "RoomLibrary", "south": "RoomChildBedroom"},
     "items": [],
     "ghost_in_room": False,
-    "ghost": ""
+    "ghost": "",
+    "on_enter": "stop_close_music",
 }
 
 room_landing_right = {
@@ -166,7 +167,8 @@ The big window is plastered off but a pink aura is present in the room illuminat
     "exits": {"north": "RoomLandingLeft"},
     "items": [],
     "ghost": ghost_toys,
-    "ghost_in_room": True
+    "ghost_in_room": True,
+    "on_enter": "play_close_music",
 }
 
 room_bathroom = {

@@ -22,6 +22,13 @@ def clear_screen():
 
     print("\n"*100)
     
+def stop_close_music(placeholder):
+    play_music("music_box_distant.wav")
+    return True
+
+def play_close_music(placeholder):
+    play_music("music_box.wav")
+    return True
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
@@ -820,6 +827,7 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
+    stop_close_music(None)
     player_name = insert_name()
     if player_name == "debug":
     	global attack_multiplier
