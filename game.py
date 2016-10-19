@@ -80,10 +80,10 @@ def do_response(response, ghost):
 def insert_name():
     print("")
     while True:
-	    print("Welcome! Please enter your name: ")
-  	  user_input = input()
-  	  if user_input:
-	    	return user_input
+      print("Welcome! Please enter your name: ")
+      user_input = input()
+      if user_input:
+        return user_input
 
 def print_intro(name):
     text = """
@@ -826,6 +826,7 @@ if __name__ == "__main__":
     	sanity = 9999999999999  	
     	defense_multiplier = 100.0
     	attack_multiplier = 100.0
+    	killed_ghost_count = 3
     print_intro(player_name)
     gamestate = GameState.main
     start_time = time.time()
