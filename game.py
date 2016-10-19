@@ -41,9 +41,10 @@ def do_response(response):
 		user_resp = "";
 		while True:
 			print("\n".join([" - " + r for r in response["responses"].keys()]))
-			user_resp = input("> ")
-			if user_resp in response["responses"]:
-				do_response(response["responses"][user_resp])
+			user_resp = input("> ").lower
+			resp_matches = [resp for resp in response["responses"] if resp.lower().startswith(user_resp)]
+			if resp_matches:
+				do_response(resp_matches)
 				return
 			print("Could you repeat that? (Note: This part is case-sensitive because I'm lazy)")
 
@@ -381,7 +382,14 @@ def execute_combat_command(command, ghost, inventory, room):
         print(ghost["desc"])
 
     elif command[0] == "use":
-        print("PLACEHOLDER")
+        if len(command) > 1:
+            item_matches = [item for item in inventory if item["id"] == command[1] and "action" in item]
+            if item_matches:
+            
+            else:
+                print("You can't use that!")
+        else:
+            print("Use what?")
 
     elif command[0] == "talk":
         converse(ghost)
