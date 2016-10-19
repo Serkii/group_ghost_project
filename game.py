@@ -42,10 +42,10 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
 
 """.format(name)
 
-    for char in text:
-        time.sleep(0.01)
-        print(char, end="")
-        sys.stdout.flush()
+    #for char in text:
+        #time.sleep(0.01)
+        #print(char, end="")
+        #sys.stdout.flush()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -322,19 +322,20 @@ def execute_combat_command(command, ghost, inventory, room):
         if item_proton_gun in inventory:
             player_combat_skill = 7
             player_attack_power = player_combat_skill + random.randrange(1, 13)
+            player_attack_power *= attack_multiplier
             ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
             if player_attack_power > ghost_attack_power:
                 print(ghost["damage_text"])
-                ghost["hp"] = ghost["hp"] - 10
+                ghost["hp"] -= 10 * attack_multiplier
             elif ghost_attack_power > player_attack_power:
                 print(ghost["onhit_text"])
-                sanity = sanity - 10
+                sanity -= 10 / defense_multiplier
             elif player_attack_power == ghost_attack_power:
                 print(ghost["name"] + " avoids the attack!")
         else:
             print("You have no weapon that can harm a ghost!")
             print(ghost["onhit_text"])
-            sanity = sanity - 10
+            sanity -= 10 * defense_multiplier
 
     elif command[0] == "examine":
         print(ghost["desc"])
@@ -483,9 +484,16 @@ def combat_menu(inventory, ghost, room):
 
     global sanity
     global gamestate
+    global first_turn
 
     if sanity > 0:
         if ghost["hp"] > 0:
+
+            if first_turn == True:
+                enter_combat(ghost)
+                first_turn = False
+
+
             print_combat_menu(inventory, ghost)
 
             user_input = input("> ")
@@ -530,18 +538,22 @@ def enter_combat(ghost):
         print(ghost["intro2"])
 
 def save_state():
-    state = [current_room, rooms]
+    global sanity
+    state = [current_room, rooms, sanity]
     save_file = open(SAVE_FILE, "wb")
     pickle.dump(state, save_file)
     save_file.close()
 
 def load_state():
     global current_room
+    global sanity
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
     rooms = state[1]
     current_room = state[0]
+    sanity = state[2]
+    calculate_stats()
 
     # This is the entry point of our program
 def main():
@@ -573,8 +585,6 @@ def main():
     while gamestate == GameState.fight:
 
         current_ghost = current_room["ghost"]
-
-        enter_combat(current_ghost)
 
         command = combat_menu(inventory, current_ghost, current_room)
 
@@ -619,4 +629,5 @@ if __name__ == "__main__":
     print_intro(player_name)
     gamestate = GameState.main
     save_state()
+    first_turn = True
     main()
