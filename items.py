@@ -178,3 +178,17 @@ item_pills = {
 
 }
 
+item_teddy = {
+	
+	"id": "teddy",
+
+	"name": "Teddy_Bear",
+
+	"desc": "A ruined teddy bear wearing knight armour, fluff is escaping out of the neck and arms, and the head of the bear is nowhere to be found.",
+
+	"movable": True
+
+	#Found in the Childrens room, Useable against Julia
+
+}
+
