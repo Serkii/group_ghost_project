@@ -122,7 +122,7 @@ ghost_Chef = {
 	uniform complete with an unnecessarily tall hat that must fall off anytime he walks through a door. In his right hand he holds a very real meat clever
 	and fiddles with rat poison in his other hand.""",
 
-	"intro": " ‘Might you be the extra hand I asked my brother for? It might seem kind of him to offer me a job but let me tell you I should have been the one to inherit this place!’ He glances at the poison in his hand and the meat behind him ‘This isn't what it looks like!’",
+	"intro": " 'Might you be the extra hand I asked my brother for? It might seem kind of him to offer me a job but let me tell you I should have been the one to inherit this place!' He glances at the poison in his hand and the meat behind him 'This isn't what it looks like!'",
 
 	"intro2": "'Don’t think I will let you leave so easily this time!'",
 
