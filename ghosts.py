@@ -19,7 +19,7 @@ ghost_dog = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "The Dog lets out a slight as you blast him with your proton gun, he has not given up yet however.",
+	"damage_text": "The Dog lets out a slight yelp as you blast him with your proton gun, he has not given up yet however.",
 
 	"onhit_text": "The Dog pounces at you, jaw open, it bites down on your leg and you barely manage to kick him back.",
 
@@ -68,7 +68,7 @@ ghost_Pinkerton = {
 	"name": "Sir Pinkerton",
 
 	"desc": """The Man has put down his knife and fork and stands up from his chair. He wears a typical dinner jacket and accompanying smart trousers.
-	Through his jacket it as if you can see an outline of all of the organs in his body, his stomach is particularly black. His hands are placed behind
+	Through his jacket it is as if you can see an outline of all of the organs in his body, his stomach in particular is black. His hands are placed behind
 	his back but his eyes dart between you and the assortment of knives and forks on the table.""",
 
 	"intro": "'Ah another guest, welcome, I am Sir Pinkerton the rightful head of this household.  I do hope you can be more civil than the group before you. I would hate to have to forcibly remove you from the premises.'",
