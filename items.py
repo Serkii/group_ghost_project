@@ -10,6 +10,14 @@ item_camera = {
 	
 }
 
+item_walkie_talkie = {
+	"id": "walkie_talkie",
+	
+	"name": "a walkie-talkie",
+	
+	"desc": "The walkie talkie is much less dusty than it's surroundings. Did someone leave it here recently?"
+}
+
 item_pizza1 = {
 
 	"id": "margarita_pizzas",

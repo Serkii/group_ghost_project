@@ -3,13 +3,15 @@ from map import rooms
 
 inventory = [item_pizza1,item_pizza2,item_garlic]
 
+start_time = None
+
 global current_room 
 current_room = rooms["RoomOutside"]
 
 sanity = 100
 
-defense_multiplier = 1.0
-attack_multiplier = 1.0
+defense_multiplier = 1.0 # lower is better
+attack_multiplier = 1.0 # higher is better
 
 def calculate_stats():
 	defense_multiplier = 1.0

@@ -660,7 +660,9 @@ def enter_combat(ghost):
 
 def save_state():
     global sanity
-    state = [current_room, rooms, sanity]
+    global total_time
+    total_time = time.time() - start_time
+    state = [current_room, rooms, sanity, total_time]
     save_file = open(SAVE_FILE, "wb")
     pickle.dump(state, save_file)
     save_file.close()
@@ -670,12 +672,14 @@ def load_state():
     global sanity
     global rooms
     global gamestate
+    global total_time
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
     rooms = state[1]
     current_room = state[0]
     sanity = state[2]
+    start_time = time.time() - state[3]
     calculate_stats()
     gamestate = GameState.main
 
@@ -758,5 +762,6 @@ if __name__ == "__main__":
     	attack_multiplier = 100.0
     print_intro(player_name)
     gamestate = GameState.main
+    start_time = time.time()
     save_state()
     main()
