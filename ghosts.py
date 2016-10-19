@@ -24,6 +24,8 @@ ghost_dog = {
 	"onhit_text": "The Dog pounces at you, jaw open, it bites down on your leg and you barely manage to kick him back.",
 
 	"death_text": "The Doberman lets out a constant whelp and dives towards the window, you expect the glass to smash but instead the Doberman phases through it and disappears into the garden. You doubt you will see him again.",
+
+	"peace_text": "Test Success!",
 	
 	#Located in the Living Room
 	#Need a peaceful way of dealing with him, probably feed him an item (maybe one of the pizza's?)

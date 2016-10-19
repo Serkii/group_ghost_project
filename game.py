@@ -18,6 +18,10 @@ class GameState(Enum):
 
 SAVE_FILE = "save_data"
 
+def clear_screen():
+    for i in range(1, 101)
+    print("")
+    
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
     play_sound("door_slam.wav")
@@ -28,7 +32,8 @@ def stairs_permission_check(landing):
     global attack_multiplier
     if attack_multiplier > 2:
     	return True
-    
+    print("")
+    print("An invisible, ghostly force, unimaginably cold to the touch, prevents you from climbing the staircase.")
     print("You are too weak to go here!")
     return False
 
@@ -188,6 +193,9 @@ def print_room(room):
     print(room["description"])
     print()
     print_room_items(room)
+    if room["ghost_in_room"] == True:
+        print(room["condition"])
+
     
 
 def exit_leads_to(exits, direction):
@@ -216,41 +224,8 @@ def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ".")
 
 
-def print_menu(exits, room_items, inv_items):
-    """This function displays the menu of available actions to the player. The
-    argument exits is a dictionary of exits as exemplified in map.py. The
-    arguments room_items and inv_items are the items lying around in the room
-    and carried by the player respectively. The menu should, for each exit,
-    call the function print_exit() to print the information about each exit in
-    the appropriate format. The room into which an exit leads is obtained
-    using the function exit_leads_to(). Then, it should print a list of commands
-    related to items: for each item in the room print
+def print_menu(exits, room_items, inv_items, room):
 
-    "TAKE <ITEM ID> to take <item name>."
-
-    and for each item in the inventory print
-
-    "DROP <ITEM ID> to drop <item name>."
-
-    For example, the menu of actions available at the Reception may look like this:
-
-    You can:
-    GO EAST to your personal tutor's office.
-    GO WEST to the parking lot.
-    GO SOUTH to MJ and Simon's room.
-    TAKE BISCUITS to take a pack of biscuits.
-    TAKE HANDBOOK to take a student handbook.
-    DROP ID to drop your id card.
-    DROP LAPTOP to drop your laptop.
-    DROP MONEY to drop your money.
-    EXAMINE BISCUITS to get more information about this item.
-    EXAMINE HANDBOOK to get more information about this item.
-    EXAMINE ID to get more information about this item.
-    EXAMINE LAPTOP to get more information about this item.
-    EXAMINE MONEY to get more information about this item.
-    What do you want to do?
-
-    """
     print("Your sanity is at " + str(sanity) + "%.")
     print("")
     print("You can:")
@@ -263,6 +238,8 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + str.upper(item["id"]) + " to take " + item["name"] + ".")
     for item in room_items:
         print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
+    if room["ghost_in_room"] == True:
+        print("APPROACH the ghost in this room.")
     
     print("Type SAVE to save the game.")
     print("What do you want to do?")
@@ -367,6 +344,18 @@ def execute_command(command):
             gamestate = GameState.main
             main()
 
+    elif command[0] == "approach":
+        if current_room["ghost_in_room"]:
+            enter_combat(current_room["ghost"])
+            gamestate = GameState.fight
+            main()
+
+        else:
+            print()
+            print("Who are you approaching? You're the only one here...")
+            print()
+
+
 
 
     else:
@@ -465,11 +454,6 @@ def execute_go(direction):
         if "on_enter" in new_room and not globals()[new_room["on_enter"]](new_room):
             return
         current_room = new_room
-        if current_room["ghost_in_room"] == True:
-            print("")
-            print(current_room["condition"])
-            print("")
-            gamestate = GameState.fight
 
     else:
         print("You cannot go that way.")
@@ -505,6 +489,7 @@ def execute_drop(item_id):
 
 def execute_examine_room(item_id):
 
+    print("")
     item_matches = [item for item in current_room["items"] + inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])
@@ -513,6 +498,7 @@ def execute_examine_room(item_id):
 
 def execute_examine_inv(item_id):
 
+    print("")
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])
@@ -553,7 +539,7 @@ def menu(exits, room_items, inv_items):
     """
 
     # Display menu
-    print_menu(exits, room_items, inv_items)
+    print_menu(exits, room_items, inv_items, current_room)
 
     # Read player's input
     user_input = input("> ")
