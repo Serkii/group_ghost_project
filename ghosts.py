@@ -1,5 +1,3 @@
-from items import *
-
 ghost_dog = {
 
 	"id": "ghostdog",
@@ -18,12 +16,10 @@ ghost_dog = {
 	"combat_skill": 7,
 
 	"hp": 50,
-	
-	"loot": [item_dogcollar],
 
 	"peace_conditions_met": 0,
 
-	"peace_text" : "The Dog wags its tail and slowly disappears into the ether",
+	"peace_text" : "The dog wags its tail and pants. You see the dog slowly disappear into the ether",
 
 	"damage_text": "The Dog lets out a slight as you blast him with your proton gun, he has not given up yet however.",
 
@@ -89,7 +85,7 @@ ghost_Pinkerton = {
 
 	"peace_conditions_met": 0,
 
-
+	"peace_text" : "'Thank you for enlightening me' Sir Pinkerton bows and disappears into thin air",
 
 	"damage_text": "Sir Pinkerton staggers back as you fire at him, however he quickly regains his posture and poises ready to attack.",
 
@@ -177,6 +173,8 @@ ghost_Chef = {
 
 	"peace_conditions_met": 0,
 
+	"peace_text" : "The Chef grunts in approval and returns to chopping. He slowly fades away and once he's gone his cleaver falls to the ground.",
+
 	"damage_text": "The Chef staggers as you fire on him and grips his face in pain.",
 
 	"onhit_text": "The Chef charges at you with his cleaver and slashes at you.",
@@ -254,13 +252,13 @@ ghost_Lady = {
 
 	"peace_conditions_met": 0,
 
+	"peace_text" : "The Lady sits back at her desk and continues to brush her hair, slowly fading away after every brush",
+
 	"damage_text": "The Lady's dress tears as you fire at her, revealing her flayed and burnt flesh underneath.",
 
 	"onhit_text": "The Lady rises from her seat and scratches you with her nails.",
 
 	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone.",
-
-	"peace_text" : "The Lady sits back at her desk and continues to brush her hair, slowly fading each way",
 	
 	"conversation" : {
 		"speech" :"What reason do you have for entering my room uninvited?",
@@ -326,6 +324,8 @@ ghost_Poltergeist = {
 
 	"peace_conditions_met": 0,
 
+	"peace_text" : "The books slowly return to their rightful place on the shelves.",
+
 	"damage_text": "You fire your proton gun at one of the books, disintegrating it. There are still an uncountable amount of books left.",
 
 	"onhit_text": "A Book is flung at you.",
@@ -357,6 +357,10 @@ ghost_toys = {
 	"hp": 250,
 
 	"peace_conditions_met": 0,
+
+	"peace_text" : "The Soldiers March in a collum towards the toy box, as the last one climbs in the box shuts.",
+
+	"The books slowly return to their rightful place on the shelves"
 
 	"damage_text": "A concentrated beam from your gun destroys a couple of the soldiers.",
 
@@ -390,6 +394,8 @@ ghost_julia = {
 	"hp": 400,
 
 	"peace_conditions_met": 0,
+
+	"peace_text" : "<PEACEFULENDING>",
 
 	"damage_text": "You fire the proton cannon at Julia",
 
