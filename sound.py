@@ -1,6 +1,4 @@
-import sys
-
-if "pygame" in sys.modules:
+try:
 	import pygame
 
 	SOUND_PATH = "./sounds/"
@@ -16,7 +14,7 @@ if "pygame" in sys.modules:
 
 	def play_sound(name):
 		loaded_sounds[name].play()
-else:
+except:
 	def load_sounds():
 		print("Sound disabled. Please install pygame.")
 	def play_sound(name):
