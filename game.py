@@ -547,6 +547,7 @@ def save_state():
 def load_state():
     global current_room
     global sanity
+    global rooms
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
