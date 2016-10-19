@@ -364,7 +364,7 @@ def execute_combat_command(command, ghost, inventory, room):
                 ghost["hp"] -= 10 * attack_multiplier
             elif ghost_attack_power > player_attack_power:
                 print(ghost["onhit_text"])
-                sanity -= 10 / defense_multiplier
+                sanity -= 10 * defense_multiplier
             elif player_attack_power == ghost_attack_power:
                 print(ghost["name"] + " avoids the attack!")
         else:
@@ -382,12 +382,12 @@ def execute_combat_command(command, ghost, inventory, room):
         converse(ghost)
 
     elif command[0] == "run":
-        player_escape = random.randrange(1, 13)
+        player_escape = random.randrange(1, 13) * attack_multiplier
         ghost_catch = random.randrange(1, 13)
         if ghost_catch > player_escape:
             print("You failed to escape!")
             print(ghost["onhit_text"])
-            sanity = sanity - 10
+            sanity -= 10 * defense_multiplier
         elif player_escape >= ghost_catch:
             print("You escape, but which way?")
             for direction in current_room["exits"]:
