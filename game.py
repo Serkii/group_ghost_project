@@ -320,8 +320,9 @@ def execute_combat_command(command, ghost, inventory, room):
 
     if command[0] == "fight":
         if item_proton_gun in inventory:
-            player_combat_skill = 7 * attack_multiplier
+            player_combat_skill = 7
             player_attack_power = player_combat_skill + random.randrange(1, 13)
+            player_attack_power *= attack_multiplier
             ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
             if player_attack_power > ghost_attack_power:
                 print(ghost["damage_text"])
