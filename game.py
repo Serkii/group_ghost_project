@@ -868,7 +868,7 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
-    time.sleep(10)
+    #time.sleep(10)
     play_sound("music_box_distant.wav", 1000)
     play_sound("music_box.wav", 1000)
     play_music("distant")
