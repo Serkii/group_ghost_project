@@ -13,13 +13,21 @@ import time
 SAVE_FILE = "save_data"
 
 def print_intro(name):
-    text = """This is the instroductory text.
+    text = """
+You are 'Player_name' a Delivery Driver for Pizza Haunt, the number one Pizza company in the whole town,
+also the only Pizza Company in the whole town but minor details are irrelevant.
+You and your trusty scooter had been all across town delivery all sorts of pizza's with all sorts of toppings and your shift was almost up when you receive one last order...
 
-Hello {0}.
+–   2 Margarita Pizza's
+–   1 Hawaiian Pizza
+–   Garlic Bread
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+It would normally be a simple task for once such as yourself but the address puzzles both you and your co-workers,
+the address is that of Clearview Mansion, a run-down house that hasn't seen use in over a hundred years.
+Still your company has a delivery in 30 minutes guarantee and since the order has already been paid for you better make your way over there.
 
-Bye, {0}.
+Also there was an odd note included with the order: “Send help, ghosts about”
+
 """.format(name)
 
     for char in text:

@@ -52,12 +52,12 @@ remain untouched by the decay found throughout the rest of the house. You hear a
 classical melody originating from a gramophone in the corner of the room, 
 the melody is paired with the soft crackle of the fireplace attached to the north wall.
 Somehow the fire still burns.""",
-    #condition: "In front of the fire a Doberman rests, when you try to focus your eyes on him he seemingly disappears."
+
     #the condition below is for test_ghost, can be removed to use above ghost condition later
-    "condition": "The terrifying test ghost is in this room!",
+    "condition": "In front of the fire a Doberman rests, when you try to focus your eyes on him he seemingly disappears.",
     "exits": {"west": "RoomLobby"},
     "items": [],
-    "ghost": test_ghost,
+    "ghost": ghost_dog,
     "ghost_in_room": True
 }
 
@@ -67,11 +67,14 @@ room_dining = {
 a few candle holders are still attached to the walls. To your left you see the broken windows
 that reveal the front of the house and your moped that helped you get here. The dining table
 covers most of the room and can fit ten people. Smashed cutlery litters the table.""",
-    #condition: """A ghostly figure sits at the head of the table, he seems to be eating something but there is nothing on his plate.
-    #             Something tells you that you won't be getting into the kitchen until this man has been dealt with."""
+
+    "condition": """A ghostly figure sits at the head of the table, he seems to be eating something but there is nothing on his plate
+    Something tells you that you won't be getting into the kitchen until this man has been dealt with.""",
+
     "exits": {"north": "RoomKitchen", "east": "RoomLobby"},
     "items": [],
-    "ghost_in_room": False
+    "ghost": ghost_Pinkerton,
+    "ghost_in_room": True
 }
 
 room_kitchen = {
@@ -81,10 +84,12 @@ form of crockery most of which is ruined beyond repair. You know not how old thi
 are certain that the refrigerator is a new addition, it has a metallic sheen to it, uncharacteristic
 of the rest of the house. There is a weird small of gas in the room and you feel it would be a bad idea
 to turn on a light switch... that would be if the mansion had working electricity in the first place.""",
-    #condition: "<Ghost here>"
+
+    "condition": "<Ghost here>",
     "exits": {"south": "RoomDining"},
     "items": [item_test_cookies],
-    "ghost_in_room": False
+    "ghost": ghost_Chef,
+    "ghost_in_room": True
 }
 
 room_landing_centre = {
