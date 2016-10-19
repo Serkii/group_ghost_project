@@ -547,6 +547,8 @@ def save_state():
 def load_state():
     global current_room
     global sanity
+    global rooms
+    global gamestate
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
@@ -554,6 +556,7 @@ def load_state():
     current_room = state[0]
     sanity = state[2]
     calculate_stats()
+    gamestate = GameState.main
 
     # This is the entry point of our program
 def main():
@@ -604,6 +607,7 @@ def main():
         if replay[0].upper() == "Y":
             load_state()
             print("Loading last save...")
+            main()
         else:
             print("""                                                            
              ##  #  # # ###      #  # # ### ##              
