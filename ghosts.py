@@ -1,3 +1,5 @@
+from items import *
+
 ghost_dog = {
 
 	"id": "ghostdog",

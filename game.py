@@ -553,11 +553,13 @@ def execute_use(item_id, ghost, room):
 def ghost_peace(ghost, room):
 
     global gamestate
+    global inventory
     
     print(ghost["peace_text"])
     ghost["peace_condition_met"] = True
     room["ghost_in_room"] = False
     gamestate = GameState.main
+    give_loot(ghost)
     main()
         
 def menu(exits, room_items, inv_items):
@@ -590,6 +592,12 @@ def inv_menu(inventory):
 
     return normalised_user_input
 
+def give_loot(ghost):
+    global inventory
+    if "loot" in ghost:
+        print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
+        inventory += ghost["loot"]
+
 def combat_menu(inventory, ghost, room):
 
     global sanity
@@ -616,6 +624,7 @@ def combat_menu(inventory, ghost, room):
             print(ghost["death_text"])
             room["ghost_in_room"] = False
             gamestate = GameState.main
+            give_loot(ghost)
             main()
     else:
         gamestate = GameState.dead
