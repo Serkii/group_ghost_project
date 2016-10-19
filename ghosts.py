@@ -100,6 +100,8 @@ ghost_Pinkerton = {
 
 	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach.",
 
+	"loot": [item_laudanum],
+
 	"conversation": {
 		"speech": "What reason do you Have for interrupting my meal? I'd rather not have to resort to this violence.",
 		"responses": {
@@ -180,7 +182,7 @@ ghost_Chef = {
 
 	"peace_conditions_met": 0,
 
-	"peace_text" : "The Chef grunts in approval and returns to chopping. He slowly fades away and once he's gone his cleaver falls to the ground.",
+	"peace_text" : "The Chef quickly turns around and returns to chopping attempting to hide the tears flowing down his face. He slowly fades away and once he's gone his cleaver falls to the ground.",
 
 	"damage_text": "The Chef staggers as you fire on him and grips his face in pain.",
 
@@ -190,7 +192,7 @@ ghost_Chef = {
 
 	"items_wanted": [item_dogcollar],
 
-	"loot": [item_poison],
+	"loot": [item_poison,item_cleaver],
 	
 	"conversation": {
 		"speech": "I use this poison for the rats in the house! That's it!",

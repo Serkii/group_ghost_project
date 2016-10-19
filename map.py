@@ -78,7 +78,7 @@ are certain that the refrigerator is a new addition, it has a metallic sheen to 
 of the rest of the house. There is a weird small of gas in the room and you feel it would be a bad idea
 to turn on a light switch... that would be if the mansion had working electricity in the first place.""",
 
-    "condition": "<Ghost here>",
+    "condition": "A ghostly figure faces a counter and hacks away at a pig carcass.",
     "exits": {"south": "RoomDining"},
     "items": [item_ham],
     "ghost": ghost_Chef,
@@ -103,10 +103,10 @@ A large, grande, wooden door centres the landing leading to the master bedroom, 
 room_landing_left = {
     "name": "The Left of the Landing",
     "description": """A gigantic stain glass window at the end of the hall sends an array of red and blue light into the miserable indoors.
-The door to the storage room in front of you has a beaten down, rusty lock hanging from the handle.
+The door to the Library in front of you has a beaten down, rusty lock hanging from the handle.
 The children's room is opposite and a slight pink glow radiates from the inside.
 The atmosphere feels very sombre and gloomy.""",
-    "exits": {"east": "RoomLandingCentre", "north": "RoomStorage", "south": "RoomChildBedroom"},
+    "exits": {"east": "RoomLandingCentre", "north": "RoomLibrary", "south": "RoomChildBedroom"},
     "items": [],
     "ghost_in_room": False,
     "ghost": ""
