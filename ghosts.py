@@ -23,13 +23,13 @@ ghost_dog = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "The Dog lets out a slight yelp as you blast him with your proton gun, he has not given up yet however.",
+	"peace_text" : "The Dog wags its tail and slowly disappears into the ether",
+
+	"damage_text": "The Dog lets out a slight as you blast him with your proton gun, he has not given up yet however.",
 
 	"onhit_text": "The Dog pounces at you, jaw open, it bites down on your leg and you barely manage to kick him back.",
 
 	"death_text": "The Doberman lets out a constant whelp and dives towards the window, you expect the glass to smash but instead the Doberman phases through it and disappears into the garden. You doubt you will see him again.",
-
-	"peace_text": "Test Success!",
 	
 	#Located in the Living Room
 	#Need a peaceful way of dealing with him, probably feed him an item (maybe one of the pizza's?)
@@ -74,7 +74,7 @@ ghost_Pinkerton = {
 	"name": "Sir Pinkerton",
 
 	"desc": """The Man has put down his knife and fork and stands up from his chair. He wears a typical dinner jacket and accompanying smart trousers.
-	Through his jacket it is as if you can see an outline of all of the organs in his body, his stomach in particular is black. His hands are placed behind
+	Through his jacket it as if you can see an outline of all of the organs in his body, his stomach is particularly black. His hands are placed behind
 	his back but his eyes dart between you and the assortment of knives and forks on the table.""",
 
 	"intro": "'Ah another guest, welcome, I am Sir Pinkerton the rightful head of this household.  I do hope you can be more civil than the group before you. I would hate to have to forcibly remove you from the premises.'",
@@ -88,6 +88,8 @@ ghost_Pinkerton = {
 	"hp": 100,
 
 	"peace_conditions_met": 0,
+
+
 
 	"damage_text": "Sir Pinkerton staggers back as you fire at him, however he quickly regains his posture and poises ready to attack.",
 
@@ -237,7 +239,7 @@ ghost_Lady = {
 
 	"name": "The Lady of the House",
 
-	"desc": """A fair woman, brushers her silver hair at the dressing table, and occasionally glances in your direction.
+	"desc": """A fair woman, brushes her silver hair at the dressing table, and occasionally glances in your direction.
 	She adorns a beautiful dress that would only be fitting at a 19th century re-enactment fair.""",
 
 	"intro": "'Do you not realise how rude it is to enter a lady's room uninvited, you servants are so uncouth, you should leave now'",
@@ -257,18 +259,51 @@ ghost_Lady = {
 	"onhit_text": "The Lady rises from her seat and scratches you with her nails.",
 
 	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone.",
+
+	"peace_text" : "The Lady sits back at her desk and continues to brush her hair, slowly fading each way",
 	
 	"conversation" : {
 		"speech" :"What reason do you have for entering my room uninvited?",
 		"responses": {
-			"Forgive me, my lady" :{
+			"Forgive me, my lady, but I'm here to deliver this pizza" :{
+			"speech": "Pizza? what on earth has my husband bought now. Regardless you should be downstairs not here",
 			},
-			"BBB" :{
+			"Oh sorry I thought that this was the Bathroom, I'll leave now.":{
+				"speech":"Please do.",
+			},
+			"I'm here investigating a haunting" :{
+				"speech" : "A haunting? what superstition, there is no such thing as ghosts",
+				"responses" : {
+				"But M'lady you ARE a ghost":{
+					"speech":"What rubbish are you spewing, be gone with you",
+					"function": "hurt_player",
+					},
+				"I used to believe that too, but the things in this house have me questioning that, you for example." :{
+					"speech" : "What do you mean by me?",
+					"responses" : {
+						"Well you're not actually alive, neither your husband downstairs, someone killed you and I'm trying to figure out who":{
+							"speech" : "Not alive? You must jest, and who would want to kill us?",
+							"responses" : {
+								"That's what I'm trying to figure out, someone put rat poison in your food." :{
+								"speech" : "My! I suppose if my husband let you in it must be serious, I'll stay out of your way but none of that ghost business, you'll scare our daughter.",
+								"function": "ghost_peace"
+								},
+								"What about the Chef? He is the next in line to own the Mansion." : {
+								"speech" : "That's my Brother-in-Law you are speaking of! How dare you!",
+								"function": "hurt_player",
+								},
+							},
+						},
+						"What I mean is that your beauty stunned me M'lady": {
+							"speech":"Such weak flattery will not work on me, I am married after all.",
+							"function" : "hurt_player",
+							},
+						},
+					},
+				},
 			},
 		},
 	},
-	#Located in the Bedroom
-	#Unkown how to peacefully deal with,
 }
 
 ghost_Poltergeist = {

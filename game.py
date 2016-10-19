@@ -19,7 +19,7 @@ class GameState(Enum):
 SAVE_FILE = "save_data"
 
 def clear_screen():
-    
+
     print("\n"*100)
     
 
@@ -329,24 +329,28 @@ def execute_command(command):
         return
 
     if command[0] == "go":
+        clear_screen()
         if len(command) > 1:
             execute_go(command[1])
         else:
             print("Go where?")
 
     elif command[0] == "take":
+        clear_screen()
         if len(command) > 1:
             execute_take(command[1])
         else:
             print("Take what?")
             
     elif command[0] == "drop":
+        clear_screen()
         if len(command) > 1:
             execute_drop(command[1])
         else:
             print("Drop what?")
 
     elif command[0] == "save":
+        clear_screen()
         if current_room["ghost_in_room"]:
             print("You cannot save here! There are ghosts nearby.")
         else:
@@ -354,10 +358,12 @@ def execute_command(command):
             print("Saving progress...")
 
     elif command[0] == "load":
+        clear_screen()
         load_state()
         print("Loading saves...")
 
     elif command[0] == "examine":
+        clear_screen()
         if gamestate == GameState.main:
             execute_examine_room(command[1])
         elif gamestate == GameState.inventory:
@@ -369,17 +375,20 @@ def execute_command(command):
         gamestate = GameState.inventory
 
     elif command[0] == "exit":
+        clear_screen()
         if gamestate == GameState.inventory:
             gamestate = GameState.main
             main()
 
     elif command[0] == "approach":
+        clear_screen()
         if current_room["ghost_in_room"]:
             enter_combat(current_room["ghost"])
             gamestate = GameState.fight
             main()
 
         else:
+            clear_screen()
             print()
             print("Who are you approaching? You're the only one here...")
             print()
@@ -388,6 +397,7 @@ def execute_command(command):
 
 
     else:
+        clear_screen()
         print("This makes no sense.")
 
 def execute_combat_command(command, ghost, inventory, room):
@@ -400,6 +410,7 @@ def execute_combat_command(command, ghost, inventory, room):
          return
 
     if command[0] == "fight":
+        clear_screen()
         if item_proton_gun in inventory:
             player_combat_skill = 7
             player_attack_power = player_combat_skill + random.randrange(1, 13)
@@ -419,9 +430,11 @@ def execute_combat_command(command, ghost, inventory, room):
             sanity -= 10 * defense_multiplier
 
     elif command[0] == "examine":
+        clear_screen()
         print(ghost["desc"])
 
     elif command[0] == "use":
+        clear_screen()
         if len(command) > 1:
             execute_use(command[1], ghost, room)
 
@@ -429,9 +442,11 @@ def execute_combat_command(command, ghost, inventory, room):
             print("Use what?")
 
     elif command[0] == "talk":
+        clear_screen()
         converse(ghost)
 
     elif command[0] == "run":
+        clear_screen()
         player_escape = random.randrange(1, 13) * attack_multiplier
         ghost_catch = random.randrange(1, 13)
         if ghost_catch > player_escape:
@@ -439,19 +454,10 @@ def execute_combat_command(command, ghost, inventory, room):
             print(ghost["onhit_text"])
             sanity -= 10 * defense_multiplier
         elif player_escape >= ghost_catch:
-            print("You escape, but which way?")
-            for direction in current_room["exits"]:
-                # Print the exit name and where it leads to
-                print_exit(direction, exit_leads_to(current_room["exits"], direction))
-                
-            user_input = input("> ")
-            normalised_user_input = normalise_input(user_input)
-            if len(normalised_user_input) > 1:
-                execute_go(normalised_user_input[1])
-                gamestate = GameState.main
-                main()
-            else:
-                print("You can't do that.")
+            print("You manage to put distance between you and the ghost.")
+            gamestate = GameState.main
+            main()
+
 
 
 
@@ -607,10 +613,6 @@ def combat_menu(inventory, ghost, room):
     if sanity > 0:
         if ghost["hp"] > 0:
 
-            if first_turn == True:
-                enter_combat(ghost)
-                first_turn = False
-
 
             print_combat_menu(inventory, ghost)
 
@@ -757,5 +759,4 @@ if __name__ == "__main__":
     print_intro(player_name)
     gamestate = GameState.main
     save_state()
-    first_turn = True
     main()
