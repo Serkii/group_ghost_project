@@ -1,18 +1,7 @@
 from items import *
 from ghosts import *
-from sound import *
 
 #Added some conditions that need to be implemented into the code
-
-def lobby_on_enter(lobby):
-    lobby.pop("on_enter", None)
-    play_sound("door_slam.wav")
-    print("The front door slams shut behind you!")
-    return True
-
-def stairs_permission_check(landing):
-    print("You are too weak to go here!")
-    return False
 
 room_outside = {
     "name": "Outside",
@@ -39,7 +28,7 @@ at the front of the house. One ray illuminates a small bust situated underneath 
 of the second floor.""",
     #condition: "A strong ghostly aura blocks you from climbing the stairs"
     "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
-    "on_enter": lobby_on_enter,
+    "on_enter": "lobby_on_enter",
     "items": [item_proton_gun],
     "ghost_in_room": False
 }
@@ -105,7 +94,7 @@ A large, grande, wooden door centres the landing leading to the master bedroom, 
     "exits": {"downstairs": "RoomLobby", "north": "RoomMasterBedroom", "east": "RoomLandingRight", "west": "RoomLandingLeft"},
     "items": [],
     "ghost_in_room": False,
-    "on_enter": stairs_permission_check
+    "on_enter": "stairs_permission_check"
 }
 
 room_landing_left = {

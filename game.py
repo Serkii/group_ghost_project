@@ -18,6 +18,20 @@ class GameState(Enum):
 
 SAVE_FILE = "save_data"
 
+def lobby_on_enter(lobby):
+    lobby.pop("on_enter", None)
+    play_sound("door_slam.wav")
+    print("The front door slams shut behind you!")
+    return True
+
+def stairs_permission_check(landing):
+    global attack_multiplier
+    if attack_multiplier > 2:
+    	return True
+    
+    print("You are too weak to go here!")
+    return False
+
 def calculate_hp():
 	hp = 0
 	for room in rooms.values():
@@ -448,7 +462,7 @@ def execute_go(direction):
     global gamestate
     if is_valid_exit(current_room["exits"], direction) == True:
         new_room = move(current_room["exits"], direction)
-        if "on_enter" in new_room and not new_room["on_enter"](new_room):
+        if "on_enter" in new_room and not globals()[new_room["on_enter"]](new_room):
             return
         current_room = new_room
         if current_room["ghost_in_room"] == True:
@@ -710,7 +724,11 @@ if __name__ == "__main__":
     load_sounds()
     player_name = insert_name()
     if player_name == "debug":
-    	sanity = 9999999999999
+    	global attack_multiplier
+    	global defense_multiplier
+    	sanity = 9999999999999  	
+    	defense_multiplier = 100.0
+    	attack_multiplier = 100.0
     print_intro(player_name)
     gamestate = GameState.main
     save_state()
