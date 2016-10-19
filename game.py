@@ -744,7 +744,7 @@ def load_state():
     global sanity
     global rooms
     global gamestate
-    global total_time
+    global start_time
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
