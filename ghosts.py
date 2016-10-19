@@ -37,38 +37,6 @@ ghost_dog = {
 	"loot": [item_dogcollar],
 	#Located in the Living Room
 	#Need a peaceful way of dealing with him, probably feed him an item (maybe one of the pizza's?)
-	"conversation": {
-		"speech": "Hello, I'm a ghost!",
-		"responses": {
-			"hello": {
-				"speech": "Nice to meet you! What's your favourite colour?",
-				"responses": {
-					"red": {
-						"speech": "That's a nice colour!",
-						"function": "ghost_peace"
-					},
-					
-					"blue": {
-						"speech": "You have poor taste."
-					}
-				}
-			},
-			"eeeww": {
-				"speech": """How dare you insult me, puny human!
-
-*The ghost slays you with a single touch*""",
-				"function": "hurt_player",
-				"responses": {
-					"test": {
-						"speech": "hello world"
-					},
-					"test2": {
-						"speech": "bye world"
-					}
-				}
-			}
-		}
-	}
 }
 
 ghost_Pinkerton = {
