@@ -3,7 +3,6 @@ from player import *
 from items import *
 from gameparser import *
 from sound import *
-from npc import *
 import random
 import pickle
 import sys
@@ -268,12 +267,6 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
-            
-    elif command[0] == "approach":
-        if len(command) > 1:
-            execute_approach(command[1])
-        else:
-            print("Approach what?")
 
     elif command[0] == "save":
         save_state()
@@ -304,6 +297,7 @@ def execute_command(command):
 def execute_combat_command(command, ghost, inventory, room):
 
     global sanity
+    global gamestate
 
 
     if 0 == len(command):
@@ -350,8 +344,9 @@ def execute_combat_command(command, ghost, inventory, room):
                 print_exit(direction, exit_leads_to(current_room["exits"], direction))
                 user_input = input("> ")
                 normalised_user_input = normalise_input(user_input)
-                execute_go(normalised_user_input)
+                execute_go(normalised_user_input[1])
                 gamestate = 0
+                main()
 
 
 

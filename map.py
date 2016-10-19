@@ -1,5 +1,4 @@
 from items import *
-from npc import *
 from ghosts import *
 from sound import *
 
@@ -42,7 +41,6 @@ of the second floor.""",
     "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": lobby_on_enter,
     "items": [item_proton_gun],
-    "npcs": [npc_test_ghost],
     "ghost_in_room": False
 }
 
