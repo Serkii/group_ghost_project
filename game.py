@@ -80,10 +80,10 @@ def do_response(response, ghost):
 def insert_name():
     print("")
     while True:
-	    print("Welcome! Please enter your name: ")
-  	  user_input = input()
-  	  if user_input:
-	    	return user_input
+        print("Welcome! Please enter your name: ")
+        user_input = input()
+        if user_input:
+            return user_input
 
 def print_intro(name):
     text = """
@@ -133,10 +133,10 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
         raise SystemExit
     else:
         clear_screen()
-        for char in title:
-            time.sleep(0.0025)
-            print(char, end="")
-            sys.stdout.flush()
+        #for char in title:
+            #time.sleep(0.0025)
+            #print(char, end="")
+            #sys.stdout.flush()
 
     
 def list_of_items(items):
