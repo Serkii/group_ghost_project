@@ -155,7 +155,7 @@ You are surrounded by information that may be helpful to complete your mission.
 """,
     "condition": "<Ghost here>",
     "exits": {"south": "RoomLandingLeft"},
-    "items": [item_familytree,item_book],
+    "items": [item_familytree, item_childsbook, item_ghostbook],
     "ghost": ghost_Poltergeist,
     "ghost_in_room": True
 }
