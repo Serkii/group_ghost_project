@@ -109,7 +109,7 @@ room_landing_left = {
     "name": "The Left of the Landing",
     "description": """A gigantic stain glass window at the end of the hall sends an array of red and blue light into the miserable indoors.
 The door to the storage room in front of you has a beaten down, rusty lock hanging from the handle.
-The children’s room is opposite and a slight pink glow radiates from the inside.
+The children's room is opposite and a slight pink glow radiates from the inside.
 The atmosphere feels very sombre and gloomy.""",
     "exits": {"east": "RoomLandingCentre", "north": "RoomStorage", "south": "RoomChildBedroom"},
     "items": [],
@@ -122,7 +122,7 @@ room_landing_right = {
 cobwebs clothe the ceiling and the red carpet that was once a luxurious,soft possession is now a tragic entity.
 you are standing by the bathroom, a place that seems perfect for wicked dead souls to reside in.
 There is a strange, medieval painting on the wall opposite to the bathroom, bigger than the rest.
-It’s captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
+It's captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
     "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom", "south": "RoomHidden"},
     "items": [],
     "ghost_in_room": False
@@ -159,7 +159,7 @@ You are surrounded by information that may be helpful to complete your mission.
 
 room_child_bedroom = {
     "name": "Child's Bedroom",
-    "description": """You are now in the children’s room.
+    "description": """You are now in the children's room.
 Soft, peaceful music plays from a music box on a bookshelf.
 A headless ballerina spins in the box.
 A rocking chair and wooden chair sway to the melody.

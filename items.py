@@ -16,7 +16,7 @@ item_pizza1 = {
 
 	"name": "Margarita Pizzas",
 
-	"desc": "Two of the pizzas you brought with you, there is no one in the world who doesn’t enjoy a good cheese and tomato medley.",
+	"desc": "Two of the pizzas you brought with you, there is no one in the world who doesn't enjoy a good cheese and tomato medley.",
 
 	"movable": True
 }
