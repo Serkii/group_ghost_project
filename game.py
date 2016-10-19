@@ -44,7 +44,7 @@ def do_response(response):
 			user_resp = input("> ").lower
 			resp_matches = [resp for resp in response["responses"] if resp.lower().startswith(user_resp)]
 			if resp_matches:
-				do_response(resp_matches)
+				do_response(resp_matches[0])
 				return
 			print("Could you repeat that? (Note: This part is case-sensitive because I'm lazy)")
 
