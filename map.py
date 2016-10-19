@@ -11,6 +11,10 @@ def lobby_on_enter(lobby):
     print("The front door slams shut behind you!")
     return True
 
+def stairs_permission_check(landing):
+    print("You are too weak to go here!")
+    return False
+
 room_outside = {
     "name": "Outside",
     "description": """You stand on a hill overlooking the whole town, in front of you stands 
@@ -102,7 +106,8 @@ A sign of life in this arid dwelling?
 A large, grande, wooden door centres the landing leading to the master bedroom, where the most affluent used to slumber.""",
     "exits": {"downstairs": "RoomLobby", "north": "RoomMasterBedroom", "east": "RoomLandingRight", "west": "RoomLandingLeft"},
     "items": [],
-    "ghost_in_room": False
+    "ghost_in_room": False,
+    "on_enter": stairs_permission_check
 }
 
 room_landing_left = {
