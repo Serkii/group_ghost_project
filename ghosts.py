@@ -1,3 +1,4 @@
+from items import *
 ghost_dog = {
 
 	"id": "ghostdog",
@@ -80,13 +81,17 @@ ghost_Pinkerton = {
 
 	"hp": 100,
 
-	"peace_conditions_met": 0,
+	"items_wanted": [item_pizza1],
+
+	"peace_condition_met": False,
 
 	"damage_text": "Sir Pinkerton staggers back as you fire at him, however he quickly regains his posture and poises ready to attack.",
 
 	"onhit_text": "Sir Pinkerton picks up a knife and throws it at you.",
 
 	"death_text": "Sir Pinkerton shivers and looks to you with confusion, he slowly fades into the ether, clutching at his stomach.",
+
+	"peace_text": "the pizza makes the ghost feel ok now and he goes away or something",
 	
 	"conversation": {
 		"speech": "Sir Pinkerton: Why are you breaking into my house?",
