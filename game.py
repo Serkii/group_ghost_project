@@ -8,7 +8,13 @@ import random
 import pickle
 import sys
 import time
+from enum import Enum
 
+class GameState(Enum):
+    main = 0
+    inventory = 1
+    fight = 2
+    dead = 3
 
 SAVE_FILE = "save_data"
 
@@ -276,18 +282,18 @@ def execute_command(command):
         load_state()
 
     elif command[0] == "examine":
-        if gamestate == 0:
+        if gamestate == GameState.main:
             execute_examine_room(command[1])
-        elif gamestate == 1:
+        elif gamestate == GameState.inventory:
             execute_examine_inv(command[1])
 
 
     elif command[0] == "inv":
-        gamestate = 1
+        gamestate = GameState.inventory
 
     elif command[0] == "exit":
-        if gamestate == 1:
-            gamestate = 0
+        if gamestate == GameState.inventory:
+            gamestate = GameState.main
             main()
 
 
@@ -346,7 +352,7 @@ def execute_combat_command(command, ghost, inventory, room):
                 user_input = input("> ")
                 normalised_user_input = normalise_input(user_input)
                 execute_go(normalised_user_input[1])
-                gamestate = 0
+                gamestate = GameState.main
                 main()
 
 
@@ -383,7 +389,7 @@ def execute_go(direction):
             print("")
             print(current_room["condition"])
             print("")
-            gamestate = 2
+            gamestate = GameState.fight
 
     else:
         print("You cannot go that way.")
@@ -481,10 +487,10 @@ def combat_menu(inventory, ghost, room):
         else:
             print(ghost["death_text"])
             room["ghost_in_room"] = False
-            gamestate = 0
+            gamestate = GameState.main
             main()
     else:
-        gamestate = 3
+        gamestate = GameState.dead
         main()
 
 
@@ -532,7 +538,7 @@ def main():
 
     #print_intro("PLACEHOLDER NAME")
     # Main game loop
-    while gamestate == 0:
+    while gamestate == GameState.main:
 
     
         # Display game status (room description, inventory etc.)
@@ -545,7 +551,7 @@ def main():
         # Execute the player's command
         execute_command(command)
 
-    while gamestate == 1:
+    while gamestate == GameState.inventory:
 
         print("")
         print_inventory_items(inventory)
@@ -554,7 +560,7 @@ def main():
 
         execute_command(command)
 
-    while gamestate == 2:
+    while gamestate == GameState.fight:
 
         current_ghost = current_room["ghost"]
 
@@ -564,7 +570,7 @@ def main():
 
         execute_combat_command(command, current_ghost, inventory, current_room)
 
-    while gamestate == 3:
+    while gamestate == GameState.dead:
         print("-------------------")
         print("---YOU ARE DEAD.---")
         print("-------------------")
@@ -592,5 +598,5 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
-    gamestate = 0
+    gamestate = GameState.main
     main()
