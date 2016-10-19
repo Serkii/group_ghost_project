@@ -150,7 +150,7 @@ You are surrounded by information that may be helpful to complete your mission.
 """,
     "condition": "The books begin to rise from the ground and circle the armchair, seemingly suspended in mid-air.",
     "exits": {"south": "RoomLandingLeft"},
-    "items": [item_familytree, item_childsbook, item_ghostbook],
+    "items": [item_familytree],
     "ghost": ghost_Poltergeist,
     "ghost_in_room": True
 }
