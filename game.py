@@ -205,6 +205,7 @@ def print_menu(exits, room_items, inv_items):
     for item in room_items:
         print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
     
+    print("Type SAVE to save the game.")
     print("What do you want to do?")
 
 def print_inv_menu(inventory):
