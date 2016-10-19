@@ -35,7 +35,8 @@ ghost_dog = {
 				"speech": "Nice to meet you! What's your favourite colour?",
 				"responses": {
 					"red": {
-						"speech": "That's a nice colour!"
+						"speech": "That's a nice colour!",
+						"function": "ghost_peace"
 					},
 					
 					"blue": {

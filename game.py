@@ -21,7 +21,7 @@ SAVE_FILE = "save_data"
 def converse(ghost):
 	print("You approach %s." % ghost["name"])
 	if "conversation" in ghost:
-		do_response(ghost["conversation"])
+		do_response(ghost["conversation"], ghost)
 	else:
 		print("This ghost doesn't seem that interested in conversation")
 
@@ -30,12 +30,13 @@ def hurt_player():
 	sanity -= 50
 	#return "test2"
 	
-def do_response(response):
+def do_response(response, ghost):
+	global current_room
 	print(response["speech"])
 	if "function" in response:
-		resp = globals()[response["function"]]()
+		resp = globals()[response["function"]](ghost, current_room)
 		if resp:
-			do_response(response["responses"][resp])
+			do_response(response["responses"][resp], ghost)
 			return
 	if "responses" in response:
 		user_resp = "";
@@ -44,7 +45,7 @@ def do_response(response):
 			user_resp = input("> ").lower()
 			resp_matches = [resp for resp in response["responses"].keys() if resp.lower().startswith(user_resp)]
 			if resp_matches:
-				do_response(response["responses"][resp_matches[0]])
+				do_response(response["responses"][resp_matches[0]], ghost)
 				return
 			print("Could you repeat that?")
 
@@ -505,7 +506,7 @@ def execute_use(item_id, ghost, room):
     if item_matches:
         if gamestate == GameState.fight:
             if item_matches[0] in ghost["items_wanted"]:
-                ghost_peace()
+                ghost_peace(ghost, room)
 
 
     else:
