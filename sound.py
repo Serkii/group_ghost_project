@@ -30,7 +30,7 @@ try:
 except:
 	def load_sounds():
 		print("Sound disabled. Please install pygame.")
-	def play_sound(name):
+	def play_sound(name, loop):
 		pass
 	def play_music(name):
 		pass
