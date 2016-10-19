@@ -251,7 +251,7 @@ ghost_Lady = {
 	"name": "The Lady of the House",
 
 	"desc": """A fair woman, brushes her silver hair at the dressing table, and occasionally glances in your direction.
-	She adorns a beautiful dress that would only be fitting at a 19th century re-enactment fair.""",
+	She adorns a beautiful dress that would only be fitting at a 19th century re-enactment fair. There is a blue ring around her neck.""",
 
 	"intro": "'Do you not realise how rude it is to enter a lady's room uninvited, you servants are so uncouth, you should leave now'",
 
@@ -299,7 +299,7 @@ ghost_Lady = {
 							"responses" : {
 								"That's what I'm trying to figure out, someone put rat poison in your food." :{
 								"speech" : "My! I suppose if my husband let you in it must be serious, I'll stay out of your way but none of that ghost business, you'll scare our daughter.",
-								"function": "ghost_peace"
+								"function": "ghost_peace",
 								},
 								"What about the Chef? He is the next in line to own the Mansion." : {
 								"speech" : "That's my Brother-in-Law you are speaking of! How dare you!",
@@ -416,13 +416,96 @@ ghost_julia = {
 
 	"peace_conditions_met": 0,
 
-	"peace_text" : "<PEACEFULENDING>",
+	"peace_text" : "'Congratulations! You really are a smart one, I've been stuck in this room for hundreds of years waiting for someone to complete the mystery.' Julia waves and slowly fades. 'Be sure to play with me again! Daddy, Mummy and Uncle get to go but I'm stuck here for eternity!' Julia disaperes from veiw, the ropes binding the Ghost Busters untangle themselves.",
 
 	"damage_text": "You fire the proton cannon at Julia",
 
 	"onhit_text": "'En garde!' Julias Wooden sword suddenly erupts in flames and she slashes at you",
 
-	"death_text": "You hear a piercing scream as Julia is engulfed by a beam of light. The oppressing atmosphere throughout the mansion suddenly dissipates."
+	"death_text": "You hear a piercing scream as Julia is engulfed by a beam of light. The oppressing atmosphere throughout the mansion suddenly dissipates and the ropes on the ghost busters burn off too.",
+
+	"conversation": {
+		"speech" : "You're here to play right? How about a quiz, if you win I these guys go. If I win, you have to play with me forever",
+			"responses" : {
+				"Okay, I'll play your game.":{
+					"speech" : "Goodie! First Question and lets start easy; what is the name of the house?",
+					"responses" : {
+						"Clearveiw Mansion" : {
+							"speech" : "Ding Ding!, Correct! Next question: How did the dog die?",
+							"responses" : {
+								"The Dog died from rat poison." : {
+								"speech" : "Ding Ding! Correct Again! Next Question: What happened to Mummy?",
+								"responses" : {
+									"She couldn't take the loss of Sir Pinkerton and hung herself." : {
+										"speech" : "Ding Ding! You're on a roll! Final Question: What happened to Daddy?",
+											"responses" : {
+												"You poisoned your Father and blamed it on the Chef!" : {
+													"speech" : "Ehehehe, you're correct! Daddy was a bully and wouldn't stop hitting me, I gave him a taste of his medicine and everyone blamed it on uncle!",
+													"function": "ghost_peace",
+												},
+												"The Chef poisoned Sir Pinkerton to inherit the Mansion!": {
+													"speech" : "Everyone believed that! It's not even true! Time for your punishment",
+													"function": "hurt_player",
+													},
+												"Sick with life, Sir Pinkerton poisoned his own food, framing his Brother to take him down with him." :{
+													"speech" : "Bzzzt! Wrong! Time for your punishment!",
+													"function": "hurt_player",
+												},
+											},
+									},
+									"She was having an affair with the Chef and killed Sir Pinkerton to remarry.":{
+										"speech" : "Bzzzt! Wrong! Time for your punishment!",
+										"function": "hurt_player",
+										},
+									},
+									"After Sir Pinkerton Died she locked herself in her bedroom untill she died." :{
+										"speech" : "Bzzzt! Wrong! Time for your punishment!",
+										"function": "hurt_player",
+										},
+								},
+								"The Dog died of old age of course." :{
+									"speech" : "Bzzzt! Wrong! Time for your punishment!",
+									"function": "hurt_player",
+								},
+								"You killed it" : {
+									"speech" : "Bzzzt! Wrong! Time for your punishment!",
+									"function": "hurt_player",
+								}
+							},
+						},
+						"Pinkerton Mansion" : {
+							"speech" : "Bzzzt! Wrong! Time for your punishment!",
+							"function": "hurt_player",
+						},
+						"Tanglewood Mansion" : {
+							"speech" : "Bzzzt! Wrong! Time for your punishment!",
+							"function": "hurt_player",
+						},
+
+					},
+				},
+				"First I have some questions for you." : {
+					"speech" : "Sure I'll awnser your questions!",
+					"responses" : {
+						"The Dog in the living room how did he die?" :{
+							"speech" : "That should be obvious silly! Rat poison still hurts dogs, and they'll eat anything!",
+						},
+						"How did Sir Pinkerton Die?" : {
+							"speech":"Daddy? He ate some bad food, Uncle cooks the food maybe it was him",
+						},
+						"The Lady in the Bedroom, what happened to her?" : {
+							"speech" : "That would be mummy! She went away when daddy died."
+						},
+						"There was a chef in the Kitchen, what happened to him?" :{
+						"Uncle? He was ran out of town by an angry mob when they found out he killed daddy!"
+						}
+					},
+				},
+				"I think I'll pass" :{
+					"speech" : "Well you can't leave my house until you play with me!"
+				}
+			},
+	}
 	
 	#Located in the Hidden room
 	#unkown how to defeat, repair her teddy, find out she killed her parents.
