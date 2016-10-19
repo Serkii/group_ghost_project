@@ -417,6 +417,7 @@ def execute_combat_command(command, ghost, inventory, room):
 
     global sanity
     global gamestate
+    global player_combat_skill
 
 
     if 0 == len(command):
@@ -425,7 +426,6 @@ def execute_combat_command(command, ghost, inventory, room):
     if command[0] == "fight":
         clear_screen()
         if item_proton_gun in inventory:
-            player_combat_skill = 7
             player_attack_power = player_combat_skill + random.randrange(1, 13)
             player_attack_power *= attack_multiplier
             ghost_attack_power = ghost["combat_skill"] + random.randrange(1, 13)
@@ -558,6 +558,7 @@ def execute_examine_inv(item_id):
 def execute_use(item_id, ghost, room):
     
     global sanity
+    global player_combat_skill
 
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
@@ -575,7 +576,7 @@ def execute_use(item_id, ghost, room):
         if item_matches[0] == item_laudanum:
             print("You drink the laudanum. You feel your nerves calming, but you feel very sluggish...")
             sanity = 100
-            combat_skill -= 2
+            player_combat_skill -= 2
             inventory.remove(item_matches[0])
 
         elif item_matches[0] == item_ham:

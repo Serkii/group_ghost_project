@@ -13,6 +13,8 @@ sanity = 100
 defense_multiplier = 1.0 # lower is better
 attack_multiplier = 1.0 # higher is better
 
+player_combat_skill = 7
+
 def calculate_stats():
 	defense_multiplier = 1.0
 	attack_multiplier = 1.0
