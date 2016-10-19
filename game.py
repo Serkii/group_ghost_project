@@ -741,11 +741,19 @@ def endgame():
     print("You beat the game in " + str(int(total_time)) + " seconds!")
 
     if total_hp > 2050 and total_time < 300:
-        print("GOOD END")
+        print("""The Mansion returns to its once peaceful state, although Julia still plays throughout the halls her malicious streak seems to have ended
+You saved the Ghostbusters in amazing time, the Pizzas were still warm when you gave it to them and you peacefully banished all of the ghosts from the house,
+doing an even better job than the ghostbusters themselves!""")
     elif total_hp > 0:
-        print("NEUTRAL END")
+        print("""There's still an unnerving atmosphere when you leave with the Ghostbusters through the front enterance,
+frustratingly enough the Ghost Busters are more interested in the pizza than the fact you just saved them.
+The Pizzas have gone cold and the Ghost Busters refuse to tip you,
+perhaps if you'd gotten through the mansion quicker the pizzas still would still be warm.""")
     else:
-        print("BAD END")
+        print("""You rush through the Mansion with the Ghost Busters team, dropping the Pizzas in the process,
+as you dive through the front door the roof collapses further cascading untill the entire Mansion is reduced to rubble.
+Whatever history the Mansion had has now been lost, the pizzas as well. Perhaps if you had handled the situation better
+you might still be getting a tip.""")
 
 def save_state():
     global sanity
@@ -887,7 +895,7 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
-    #time.sleep(10)
+    time.sleep(10)
     play_sound("music_box_distant.wav", 1000)
     play_sound("music_box.wav", 1000)
     play_music("distant")
