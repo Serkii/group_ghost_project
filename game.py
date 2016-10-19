@@ -75,7 +75,12 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
         #time.sleep(0.01)
         #print(char, end="")
         #sys.stdout.flush()
-
+    
+    print("")
+    if(input("Do you accept this order?: " ))== "no":
+        print("GAME ENDS")
+        raise SystemExit
+    
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
