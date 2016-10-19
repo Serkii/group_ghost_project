@@ -429,6 +429,8 @@ def execute_examine_room(item_id):
 
 def execute_examine_inv(item_id):
 
+    global inventory
+
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         print(item_matches[0]["desc"])

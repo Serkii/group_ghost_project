@@ -12,7 +12,7 @@ item_camera = {
 
 item_pizza1 = {
 
-	"id": "Margarita Pizzas",
+	"id": "margarita_pizzas",
 
 	"name": "Margarita Pizzas",
 
@@ -34,11 +34,11 @@ item_pizza2 = {
 
 item_garlic = {
 
-	"id": "Garlic",
+	"id": "garlic",
 
 	"name": "Garlic",
 
-	"desc": "A side of garlic bread included with the order you’re to deliver, it is said that garlic has properties that help defend against certain supernatural aspirations, although I doubt your customers would be too happy if you lost them.",
+	"desc": "A side of garlic bread included with the order you are to deliver. It is said that garlic has properties that help defend against certain supernatural aspirations, although I doubt your customers would be too happy if you lost them.",
 
 	"movable": True
 }
