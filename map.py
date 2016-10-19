@@ -120,7 +120,7 @@ cobwebs clothe the ceiling and the red carpet that was once a luxurious,soft pos
 you are standing by the bathroom, a place that seems perfect for wicked dead souls to reside in.
 There is a strange, medieval painting on the wall opposite to the bathroom, bigger than the rest.
 It's captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
-    "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom", "south": "RoomHidden"},
+    "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom"},
     "items": [],
     "ghost_in_room": False,
     "ghost": ""
@@ -133,7 +133,7 @@ An intricately designed domed ceiling is now falling down pieces by pieces.
 The large windows next to the magnificent four poster bed overlook the overgrown mazes in the acres of land that connect to the woods.
 An aged chest lies at the foot of the bed wrapped around tightly in untouched chains clamped with an ancient lock.
 In the corner of the room is a dressing table with a dust-covered mirror and broken chair.""",
-    "condition": "<Ghost here>",
+    "condition": "A Lady sits by the dressing table and brushes her hair whilst humming a tune.",
     "exits": {"south": "RoomLandingCentre", "east": "RoomBathroom"},
     "items": [],
     "ghost": ghost_Lady,
@@ -148,7 +148,7 @@ Most of the ancient books are fallen, lying on the ground in a chaotic state mak
 An armchair ripped to shreds and a coffee table, with one leg short are situated in the middle of the room.
 You are surrounded by information that may be helpful to complete your mission.
 """,
-    "condition": "<Ghost here>",
+    "condition": "The books begin to rise from the ground and circle the armchair, seemingly suspended in mid-air.",
     "exits": {"south": "RoomLandingLeft"},
     "items": [item_familytree, item_childsbook, item_ghostbook],
     "ghost": ghost_Poltergeist,
@@ -163,7 +163,7 @@ A headless ballerina spins in the box.
 A rocking chair and wooden chair sway to the melody.
 The big window is plastered off but a pink aura is present in the room illuminating the space.
 """,
-    "condition": "<Ghost here>",
+    "condition": "There are many toy soldiers marching in parade to the melody eminating from the music box",
     "exits": {"north": "RoomLandingLeft"},
     "items": [],
     "ghost": ghost_toys,

@@ -30,6 +30,23 @@ def play_close_music(placeholder):
     play_music("music_box.wav")
     return True
 
+def calculate_stats():
+
+    global attack_multiplier
+    global defense_multiplier
+    global inventory
+
+    defense_multiplier = 1.0
+
+    attack_multiplier = 1.0
+
+
+    for item in inventory:
+        if "attack" in item:
+            attack_multiplier *= item["attack"]
+        if "defense" in item:
+            defense_multiplier *= item["defense"]
+
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
     play_sound("door_slam.wav")
@@ -87,10 +104,10 @@ def do_response(response, ghost):
 def insert_name():
     print("")
     while True:
-      print("Welcome! Please enter your name: ")
-      user_input = input()
-      if user_input:
-        return user_input
+        print("Welcome! Please enter your name: ")
+        user_input = input()
+        if user_input:
+            return user_input
 
 def print_intro(name):
     text = """
@@ -140,10 +157,10 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
         raise SystemExit
     else:
         clear_screen()
-        for char in title:
-            time.sleep(0.0025)
-            print(char, end="")
-            sys.stdout.flush()
+        #for char in title:
+            #time.sleep(0.0025)
+            #print(char, end="")
+            #sys.stdout.flush()
 
     
 def list_of_items(items):
@@ -429,6 +446,8 @@ def execute_combat_command(command, ghost, inventory, room):
     global player_combat_skill
 
 
+
+
     if 0 == len(command):
          return
 
@@ -648,10 +667,13 @@ def inv_menu(inventory):
 def give_loot(ghost):
     global inventory
     global killed_ghost_count
+    global attack_multiplier
     killed_ghost_count += 1
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
+    calculate_stats()
+
         
 
 def combat_menu(inventory, ghost, room):

@@ -208,7 +208,11 @@ item_poison = {
 
 	"desc": "A green vial with a skull drawn on the side. This Toxin was clearly used to kill the residences of this house, combining this with a weapon would likely increase your damage to the ghosts.",
 
-	"movable": True
+	"movable": True,
+
+	"attack": 2
+
+	"attack" : 2
 
 	#Found in the Childrens room, Useable against Julia
 
@@ -248,7 +252,9 @@ item_cleaver = {
 
 	"desc": "It's a rusty meat cleaver, the edge has dulled and you wonder if this can even cut meat.",
 
-	"movable": True
+	"movable": True,
+
+	"attack": 2
 
 
 }
