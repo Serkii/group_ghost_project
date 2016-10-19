@@ -49,7 +49,7 @@ item_proton_gun = {
 
 	"name": "a proton gun",
 
-	"desc": "DESCRIPTION",
+	"desc": "You recognised the weapon from the movie GHOSTBUSTERS. The highly focused proton beam it fires can drain the energy of a creature.",
 
 	"movable": True
 }
