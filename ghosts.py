@@ -159,7 +159,7 @@ ghost_Chef = {
 
 	"intro": " 'Might you be the extra hand I asked my brother for? It might seem kind of him to offer me a job but let me tell you I should have been the one to inherit this place!' He glances at the poison in his hand and the meat behind him 'This isn't what it looks like!'",
 
-	"intro2": "'Don’t think I will let you leave so easily this time!'",
+	"intro2": "'Don't think I will let you leave so easily this time!'",
 
 	"player_escaped": False,
 
@@ -192,7 +192,9 @@ ghost_Chef = {
 								"speech":"I'm a what?",
 								"responses" : {
 									"You're a ghost Chef..." : {
-										"speech":"I... I am... Look what ever is going on here you have to find out what happened here, take whatever will help you from the kitchen"
+										"speech":"I... I am... Look what ever is going on here you have to find out what happened here, take whatever will help you from the kitchen",
+										"function": "ghost_peace",
+
 									}
 
 								}
@@ -204,13 +206,16 @@ ghost_Chef = {
 			"LEAVE conversation": {
 				"speech": "You won't tell anybody I posioned anyone!",
 			},
-			"The Dog in the living room is yours isn't it?" : {
+			"The dog in the living room is yours isn't it?" : {
 				"speech": "You saw his grave from the window I take it? Loyal as anything but stupid too, I do miss him",
 				"responses" : {
 					"No, no no... He wasn't in a grave, I did have to put him down however":{
 						"speech" : "how dare you!",
 						"function": "hurt_player",
 					},
+					"Yeah... well... shame about that" : {
+						"speech" : ""
+					} 
 				},
 			},
 		},
@@ -229,9 +234,9 @@ ghost_Lady = {
 	"desc": """A fair woman, brushers her silver hair at the dressing table, and occasionally glances in your direction.
 	She adorns a beautiful dress that would only be fitting at a 19th century re-enactment fair.""",
 
-	"intro": "‘Do you not realise how rude it is to enter a lady’s room uninvited, you servants are so uncouth, you should leave now’",
+	"intro": "'Do you not realise how rude it is to enter a lady's room uninvited, you servants are so uncouth, you should leave now'",
 
-	"intro2": "‘You again? Were it not for my husband I’d you fired immediately, instead I suppose I instill some discipline.’",
+	"intro2": "'You again? Were it not for my husband I'd have you fired immediately, instead I suppose I should instill some discipline.'",
 
 	"player_escaped": False,
 
@@ -241,12 +246,21 @@ ghost_Lady = {
 
 	"peace_conditions_met": 0,
 
-	"damage_text": "The Lady’s dress tears as you fire at her, revealing her flayed and burnt flesh underneath.",
+	"damage_text": "The Lady's dress tears as you fire at her, revealing her flayed and burnt flesh underneath.",
 
 	"onhit_text": "The Lady rises from her seat and scratches you with her nails.",
 
-	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone."
+	"death_text": "You see the skin melts from her face as she claws at herself, you turn your head away but when you look back she is gone.",
 	
+	"conversation" : {
+		"speech" :"What reason do you have for entering my room uninvited?",
+		"responses": {
+			"Forgive me, my lady" :{
+			},
+			"BBB" :{
+			},
+		},
+	},
 	#Located in the Bedroom
 	#Unkown how to peacefully deal with,
 }
@@ -289,7 +303,7 @@ ghost_toys = {
 
 	"name": "Haunted Toy Soldiers",
 
-	"desc": """There is an assortment of broken toy soldiers in the room, they have all been modified in grotesque ways. They guard a small bookshelf of children’s books. One of the books is missing.""",
+	"desc": """There is an assortment of broken toy soldiers in the room, they have all been modified in grotesque ways. They guard a small bookshelf of children's books. One of the books is missing.""",
 
 	"intro": "The toy soldiers stagger towards you, attempting to march to a beat matching the melody of the ballerina.",
 
@@ -320,13 +334,13 @@ ghost_julia = {
 
 	"name": "The Child",
 
-	"desc": """A little girl circles the captured ghost busters on a tricycle in a scene you swear you’ve seen somewhere before she hums a tune similar to the one you heard from a music box. 
+	"desc": """A little girl circles the captured ghost busters on a tricycle in a scene you swear you've seen somewhere before she hums a tune similar to the one you heard from a music box. 
 	She occasionally prods the Ghost busters with her wooden sword, and clutches a teddy bear head in her other arm.""",
 
-	"intro": """‘Oh another guest come to play with me! My name’s Julia and I’m the head of the house now!
-	 We should play a game, Daddy and Mommy won’t be playing with me anymore and these people were getting boring so let’s play!’""",
+	"intro": """'Oh another guest come to play with me! My name's Julia and I'm the head of the house now!
+	 We should play a game, Daddy and Mommy won't be playing with me anymore and these people were getting boring so let's play!'""",
 
-	"intro2": "‘Oh good, Oh good you’re back! I was hoping we could play some more!’",
+	"intro2": "'Oh good, Oh good you're back! I was hoping we could play some more!'",
 
 	"player_escaped": False,
 
@@ -338,7 +352,7 @@ ghost_julia = {
 
 	"damage_text": "You fire the proton cannon at Julia",
 
-	"onhit_text": "‘En garde!’ Julias Wooden sword suddenly erupts in flames and she slashes at you",
+	"onhit_text": "'En garde!' Julias Wooden sword suddenly erupts in flames and she slashes at you",
 
 	"death_text": "You hear a piercing scream as Julia is engulfed by a beam of light. The oppressing atmosphere throughout the mansion suddenly dissipates."
 	
