@@ -146,7 +146,7 @@ room_library = {
 Tall, dark bookshelves line the entirety of the room.
 Most of the ancient books are fallen, lying on the ground in a chaotic state making the shelves look sparse.
 An armchair ripped to shreds and a coffee table, with one leg short are situated in the middle of the room.
-You are surrounded by information that could be helpful to complete your mission.
+You are surrounded by information that may be helpful to complete your mission.
 """,
     "exits": {"south": "RoomLandingLeft"},
     "items": [item_familytree,item_book],
