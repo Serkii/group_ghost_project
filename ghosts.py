@@ -27,6 +27,7 @@ ghost_dog = {
 
 	"death_text": "The Doberman lets out a constant whelp and dives towards the window, you expect the glass to smash but instead the Doberman phases through it and disappears into the garden. You doubt you will see him again.",
 	
+	"items_wanted": [],
 	#Located in the Living Room
 	#Need a peaceful way of dealing with him, probably feed him an item (maybe one of the pizza's?)
 	"conversation": {

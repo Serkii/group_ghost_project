@@ -47,7 +47,7 @@ Somehow the fire still burns.""",
     #the condition below is for test_ghost, can be removed to use above ghost condition later
     "condition": "In front of the fire a Doberman rests, when you try to focus your eyes on him he seemingly disappears.",
     "exits": {"west": "RoomLobby"},
-    "items": [],
+    "items": [item_ham],
     "ghost": ghost_dog,
     "ghost_in_room": True
 }

@@ -282,6 +282,8 @@ def print_inv_menu(inventory):
         print("EXAMINE " + str.upper(item["id"]) + " to get more information about this item.")
     for item in inventory:
         print("DROP " + str.upper(item["id"]) + " to drop " + item["name"] + ".")
+    for item in inventory:
+        print("USE " + str.upper(item["id"]) + " to try and use " + item["name"] + ".")
     print("EXIT this menu.")
     print("What do you want to do?")
 
@@ -392,6 +394,14 @@ def execute_command(command):
             print()
             print("Who are you approaching? You're the only one here...")
             print()
+
+    elif command[0] == "use":
+        clear_screen()
+        if len(command) > 1:
+            execute_use(command[1], ghost, room)
+
+        else:
+            print("Use what?")
 
 
 
@@ -543,8 +553,8 @@ def execute_examine_inv(item_id):
         print()
 
 def execute_use(item_id, ghost, room):
-
     
+    global sanity
 
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
@@ -552,6 +562,20 @@ def execute_use(item_id, ghost, room):
             if item_matches[0] in ghost["items_wanted"]:
                 ghost_peace(ghost, room)
 
+        if item_matches[0] == item_laudanum:
+            print("You drink the laudanum. You feel your nerves calming, but you feel very sluggish...")
+            sanity = 100
+            combat_skill -= 2
+
+        elif item_matches[0] == item_ham:
+            print("""You eat the ghostly chef's ham. The taste is to die for! You are so captivated by 
+                the flavour, in fact, you almost forget your objective for a moment.""")
+            sanity = 100
+
+        elif item_matches[0] == item_pills:
+            print("""You take the pills. After a short while, you feel calmer, though mostly because
+                there weren't any side effects...""")
+            sanity = 100
 
     else:
         print("You cannot use that.")
@@ -705,6 +729,7 @@ def main():
         execute_combat_command(command, current_ghost, inventory, current_room)
 
     while gamestate == GameState.dead:
+        clear_screen()
         print("""
             # #  #  # #      #  ##  ###     ##  ###  #  ##              
 ### ###     # # # # # #     # # # # #       # # #   # # # #     ### ### 
