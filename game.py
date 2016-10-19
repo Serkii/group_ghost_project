@@ -23,11 +23,11 @@ def clear_screen():
     print("\n"*100)
     
 def stop_close_music(placeholder):
-    play_music("music_box_distant.wav")
+    play_music("distant")
     return True
 
 def play_close_music(placeholder):
-    play_music("music_box.wav")
+    play_music("close")
     return True
 
 def calculate_stats():
@@ -868,7 +868,10 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
-    stop_close_music(None)
+    time.sleep(10)
+    play_sound("music_box_distant.wav", 1000)
+    play_sound("music_box.wav", 1000)
+    play_music("distant")
     player_name = insert_name()
     if player_name == "debug":
     	global attack_multiplier
