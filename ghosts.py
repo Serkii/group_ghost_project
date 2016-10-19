@@ -103,7 +103,7 @@ ghost_Pinkerton = {
 								"responses": {
 									"It's hard to believe but you are a Ghost, take a look infront of you there's nothing on your plate":{
 										"speech": "I'm dead? That explains a lot, if I am truly to pass peacefully, find my brother and avenge me",
-										#"function": "???",
+										"function": "ghost_peace",
 									},
 									"Oh no of course not, maybe he's just such a terrible cook.":{
 										"speech":"Such insolence!",
@@ -122,7 +122,7 @@ ghost_Pinkerton = {
 								"responses": {
 									"It's hard to believe but you are a Ghost, take a look infront of you there's nothing on your plate":{
 										"speech": "I'm dead? That explains a lot, if I am truly to pass peacefully, find my brother and avenge me",
-										#"function": "???",
+										"function": "ghost_peace",
 									},
 									"My mistake maybe he's just a bad cook.":{
 										"speech":"Such insolence!",
@@ -173,62 +173,48 @@ ghost_Chef = {
 
 	"onhit_text": "The Chef charges at you with his cleaver and slashes at you.",
 
-	"death_text": "The Chef erupts into flame. Screaming, he dashes towards the sink, but disappears into thin air before he can reach it."
+	"death_text": "The Chef erupts into flame. Screaming, he dashes towards the sink, but disappears into thin air before he can reach it.",
 
 	"conversation": {
-		"speech": "What reason do you Have for interrupting my meal? I'd rather not have to resort to this violence.",
+		"speech": "I use this poison for the rats in the house! That's it!",
 		"responses": {
-			"You realise there's nothing on your plate right?": {
-				"speech": "What are you talking about? This meal was made by my brother, I hired him as a chef here. He lacks many talents but at least he can cook, there's certainly an odd taste to it however.",
+			"The food behind you wouldn't be poisoned would it?": {
+				"speech": "No of course not! Well... it is but it wasn't me! I only noticed it now!",
 				"responses": {
-					"Who is your brother?": {
-						"speech": "My Brother? He cooks well enough but he has always resented me since I inherrited the house, he may be older but he did little for the family.",
-						"responses": {
-							"Could he have poisoned it?": {
-								"speech": "You can't possibly believe he poisoned it!",
-								"responses": {
-									"It's hard to believe but you are a Ghost, take a look infront of you there's nothing on your plate":{
-										"speech": "I'm dead? That explains a lot, if I am truly to pass peacefully, find my brother and avenge me",
-										#"function": "???",
-									},
-									"Oh no of course not, maybe he's just such a terrible cook.":{
-										"speech":"Such insolence!",
-										"function": "hurt_player",
-									}
-								},
-							},
-						},
+					"That sounds like a lie to me!": {
+						"speech": "You might no believe me but I can make sure you tell no one else",
+						"function": "hurt_player",
 					},
-					
-					"What do you mean it tastes funny?": {
-						"speech": "It does taste sort of off today when he cooks so well. Almost acidic...",
-						"responses": {
-							"Could he have poisoned it?": {
-								"speech": "You can't possibly believe he poisoned it!",
-								"responses": {
-									"It's hard to believe but you are a Ghost, take a look infront of you there's nothing on your plate":{
-										"speech": "I'm dead? That explains a lot, if I am truly to pass peacefully, find my brother and avenge me",
-										#"function": "???",
-									},
-									"My mistake maybe he's just a bad cook.":{
-										"speech":"Such insolence!",
-										"function": "hurt_player",
-										},
-								},
+					"Then who poisoned it?": {
+						"speech": "I...I don't know, but you have to find out! Someone is trying to kill the people of this house",
+						"responses" : {
+							"Well... the thing is you're already dead... you're a ghost": {
+								"speech":"I'm a what?",
+								"responses" : {
+									"You're a ghost Chef..." : {
+										"speech":"I... I am... Look what ever is going on here you have to find out what happened here, take whatever will help you from the kitchen"
+									}
+
+								}
 							},
 						},
 					},
 				},
 			},
-			"Is the dog in the living room yours?": {
-				"speech": """Ah have you met the mutt? My Brother insisted he come with him the flea ridden thing.
-I bearly tolerate him, we shall speak no more of him""",
-			},
 			"LEAVE conversation": {
-				"speech": "Have we nothing more to speak off? Be gone then.",
-			}
-		}
-	}
+				"speech": "You won't tell anybody I posioned anyone!",
+			},
+			"The Dog in the living room is yours isn't it?" : {
+				"speech": "You saw his grave from the window I take it? Loyal as anything but stupid too, I do miss him",
+				"responses" : {
+					"No, no no... He wasn't in a grave, I did have to put him down however":{
+						"speech" : "how dare you!",
+						"function": "hurt_player",
+					},
+				},
+			},
+		},
+	},
 	
 	#Located in the Kitchen
 	#Unkown how to peacefully deal with, perhaps with an item given by Pinkerton?
