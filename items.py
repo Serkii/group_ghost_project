@@ -23,7 +23,7 @@ item_pizza1 = {
 
 item_pizza2 = {
 
-	"id": "Hawaiian Pizza",
+	"id": "hawaiian_pizza",
 
 	"name": "Hawaiian Pizza",
 
@@ -45,7 +45,7 @@ item_garlic = {
 
 item_proton_gun = {
 	
-	"id": "protongun",
+	"id": "proton_gun",
 
 	"name": "a proton gun",
 
@@ -54,20 +54,10 @@ item_proton_gun = {
 	"movable": True
 }
 
-item_test_cookies = {
-
-	"id": "cookies",
-
-	"name": "a packet of cookies",
-
-	"desc": "These are for testing combat. Take them to the test ghost.",
-
-	"movable": True
-}
 
 item_familytree = {
 	
-	"id": "familytree",
+	"id": "family_tree",
 
 	"name": "A picture of family tree",
 

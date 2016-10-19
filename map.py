@@ -89,7 +89,7 @@ to turn on a light switch... that would be if the mansion had working electricit
 
     "condition": "<Ghost here>",
     "exits": {"south": "RoomDining"},
-    "items": [item_test_cookies],
+    "items": [],
     "ghost": ghost_Chef,
     "ghost_in_room": True
 }

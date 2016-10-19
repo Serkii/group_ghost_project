@@ -42,10 +42,10 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
 
 """.format(name)
 
-    for char in text:
-        time.sleep(0.01)
-        print(char, end="")
-        sys.stdout.flush()
+    #for char in text:
+        #time.sleep(0.01)
+        #print(char, end="")
+        #sys.stdout.flush()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -484,9 +484,16 @@ def combat_menu(inventory, ghost, room):
 
     global sanity
     global gamestate
+    global first_turn
 
     if sanity > 0:
         if ghost["hp"] > 0:
+
+            if first_turn == True:
+                enter_combat(ghost)
+                first_turn = False
+
+
             print_combat_menu(inventory, ghost)
 
             user_input = input("> ")
@@ -579,8 +586,6 @@ def main():
 
         current_ghost = current_room["ghost"]
 
-        enter_combat(current_ghost)
-
         command = combat_menu(inventory, current_ghost, current_room)
 
         execute_combat_command(command, current_ghost, inventory, current_room)
@@ -624,4 +629,5 @@ if __name__ == "__main__":
     print_intro(player_name)
     gamestate = GameState.main
     save_state()
+    first_turn = True
     main()
