@@ -12,7 +12,7 @@ item_camera = {
 
 item_pizza1 = {
 
-	"id": "pizza1",
+	"id": "Margarita Pizzas",
 
 	"name": "Margarita Pizzas",
 
@@ -23,7 +23,7 @@ item_pizza1 = {
 
 item_pizza2 = {
 
-	"id": "pizza2",
+	"id": "Hawaiian Pizza",
 
 	"name": "Hawaiian Pizza",
 
