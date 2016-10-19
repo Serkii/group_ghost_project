@@ -157,10 +157,10 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
         raise SystemExit
     else:
         clear_screen()
-        #for char in title:
-            #time.sleep(0.0025)
-            #print(char, end="")
-            #sys.stdout.flush()
+        for char in title:
+            time.sleep(0.0025)
+            print(char, end="")
+            sys.stdout.flush()
 
     
 def list_of_items(items):
@@ -670,8 +670,11 @@ def give_loot(ghost):
     global attack_multiplier
     killed_ghost_count += 1
     if killed_ghost_count == 6:
+        print()
         print("You hear a sudden noise from elsewhere in the mansion, like stone grinding against stone...")
         rooms["RoomLandingRight"]["exits"]["south"] = "RoomHidden"
+    if killed_ghost_count == 7:
+        endgame()
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
@@ -735,6 +738,7 @@ def enter_combat(ghost):
 
 def endgame():
 
+
     global start_time
     
     total_time = time.time() - start_time
@@ -744,19 +748,31 @@ def endgame():
     print("You beat the game in " + str(int(total_time)) + " seconds!")
 
     if total_hp > 2050 and total_time < 300:
+        print("\n"*5)
+
         print("""The Mansion returns to its once peaceful state, although Julia still plays throughout the halls her malicious streak seems to have ended
 You saved the Ghostbusters in amazing time, the Pizzas were still warm when you gave it to them and you peacefully banished all of the ghosts from the house,
 doing an even better job than the ghostbusters themselves!""")
+
+        print("\n"*5)
+
+        raise SystemExit
     elif total_hp > 0:
+        print("\n"*5)
         print("""There's still an unnerving atmosphere when you leave with the Ghostbusters through the front enterance,
 frustratingly enough the Ghost Busters are more interested in the pizza than the fact you just saved them.
 The Pizzas have gone cold and the Ghost Busters refuse to tip you,
 perhaps if you'd gotten through the mansion quicker the pizzas still would still be warm.""")
+        print("\n"*5)
+        raise SystemExit
     else:
+        print("\n"*5)
         print("""You rush through the Mansion with the Ghost Busters team, dropping the Pizzas in the process,
-as you dive through the front door the roof collapses further cascading untill the entire Mansion is reduced to rubble.
+as you dive through the front door the roof collapses further cascading until the entire Mansion is reduced to rubble.
 Whatever history the Mansion had has now been lost, the pizzas as well. Perhaps if you had handled the situation better
 you might still be getting a tip.""")
+        print("\n"*5)
+        raise SystemExit
 
 def save_state():
     global sanity
@@ -789,8 +805,6 @@ def main():
     #print_intro("PLACEHOLDER NAME")
     # Main game loop
     while gamestate == GameState.main:
-
-        endgame()
 
     
         # Display game status (room description, inventory etc.)
