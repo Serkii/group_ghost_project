@@ -123,11 +123,6 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
 
     
 
-    #for char in text:
-        #time.sleep(0.01)
-        #print(char, end="")
-        #sys.stdout.flush()
-
     clear_screen()
     print(text)
     if(input("Do you accept this order?: " ))== "no":
@@ -135,7 +130,11 @@ Also there was an odd note included with the order: 'Send help, ghosts about'
         raise SystemExit
     else:
         clear_screen()
-        print(title)
+        for char in title:
+            time.sleep(0.0025)
+            print(char, end="")
+            sys.stdout.flush()
+
     
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -317,7 +316,7 @@ def is_valid_exit(exits, chosen_exit):
     """
     return chosen_exit in exits
 
-def execute_command(command):
+def execute_command(command, ghost, room):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
     the command: "go", "take", or "drop"), executes either execute_go,
@@ -366,10 +365,13 @@ def execute_command(command):
 
     elif command[0] == "examine":
         clear_screen()
-        if gamestate == GameState.main:
-            execute_examine_room(command[1])
-        elif gamestate == GameState.inventory:
-            execute_examine_inv(command[1])
+        if len(command) > 1:
+            if gamestate == GameState.main:
+                execute_examine_room(command[1])
+            elif gamestate == GameState.inventory:
+                execute_examine_inv(command[1])
+        else:
+            print("Examine what?")
 
 
     elif command[0] == "inv":
@@ -560,22 +562,27 @@ def execute_use(item_id, ghost, room):
     if item_matches:
         if gamestate == GameState.fight:
             if item_matches[0] in ghost["items_wanted"]:
+                inventory.remove(item_matches[0])
                 ghost_peace(ghost, room)
+                
 
         if item_matches[0] == item_laudanum:
             print("You drink the laudanum. You feel your nerves calming, but you feel very sluggish...")
             sanity = 100
             combat_skill -= 2
+            inventory.remove(item_matches[0])
 
         elif item_matches[0] == item_ham:
             print("""You eat the ghostly chef's ham. The taste is to die for! You are so captivated by 
                 the flavour, in fact, you almost forget your objective for a moment.""")
             sanity = 100
+            inventory.remove(item_matches[0])
 
         elif item_matches[0] == item_pills:
             print("""You take the pills. After a short while, you feel calmer, though mostly because
                 there weren't any side effects...""")
             sanity = 100
+            inventory.remove(item_matches[0])
 
     else:
         print("You cannot use that.")
@@ -722,7 +729,7 @@ def main():
         command = menu(current_room["exits"], current_room["items"], inventory)
 
         # Execute the player's command
-        execute_command(command)
+        execute_command(command, current_room["ghost"], current_room)
 
     while gamestate == GameState.inventory:
 
@@ -731,7 +738,7 @@ def main():
 
         command = inv_menu(inventory)
 
-        execute_command(command)
+        execute_command(command, current_room["ghost"], current_room)
 
     while gamestate == GameState.fight:
 
@@ -744,12 +751,35 @@ def main():
     while gamestate == GameState.dead:
         clear_screen()
         print("""
-            # #  #  # #      #  ##  ###     ##  ###  #  ##              
-### ###     # # # # # #     # # # # #       # # #   # # # #     ### ### 
-             #  # # # #     ### ##  ##      # # ##  ### # #             
-### ###      #  # # # #     # # # # #       # # #   # # # #     ### ### 
-             #   #  ###     # # # # ###     ##  ### # # ##             
-        """)
+        .-:.     ::-.   ...      ...    :::   
+         ';;.   ;;;;'.;;;;;;;.   ;;     ;;;
+           '[[,[[[' ,[[     \[[,[['     [[[
+             c$$"   $$$,     $$$$$      $$$
+           ,8P"`    "888,_ _,88P88    .d888
+          mM"         "YMMMMMP"  "YmmMMMM""     
+
+
+            :::.    :::::::..  .,::::::  
+           ;;`;;   ;;;;``;;;; ;;;;''''  
+         ,[[ '[[,  [[[,/[[['  [[cccc   
+        c$$$cc$$$c $$$$$$c    $$\"\"""   
+        888   888,888b "88bo,888oo,__ 
+        YMM   ""` MMMM   "W" \"""\"YUMMM 
+
+
+
+        :::::::-.  .,::::::   :::.   :::::::-.  
+        ;;,   `';,;;;;''''   ;;`;;   ;;,   `';,
+        [[     [[ [[cccc   ,[[ '[[, `[[     [[
+        $$,    $$ $$\""\""  c$$$cc$$$c $$,    $$
+        888_,o8P' 888oo,__ 888   888,888_,o8P'
+         MMMMP"`   "\"""YUMMMYMM   ""` MMMMP"`  
+
+
+
+
+            """)
+
         print("Maybe you should be more careful next time.")
         print("Do you want to play from your last save? Y/N")
         replay = input("> ")
@@ -765,7 +795,7 @@ def main():
 ### ###     # # # # # # #       # # # # #   # #     ### ### 
              ## # # # # ###      #   #  ### # #            
              """)
-        break
+        raise SystemExit
 
 
         

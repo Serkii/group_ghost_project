@@ -16,6 +16,7 @@ pizzas have been delivered of course.""",
     #condition: You should not be able to return to this room once entering the lobby
     "exits": {"inside": "RoomLobby"},
     "items": [],
+    "ghost": "",
     "ghost_in_room": False
 }
 
@@ -30,7 +31,8 @@ of the second floor.""",
     "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": "lobby_on_enter",
     "items": [item_proton_gun, item_walkie_talkie],
-    "ghost_in_room": False
+    "ghost_in_room": False,
+    "ghost": ""
 }
 
 room_living = {
@@ -94,7 +96,8 @@ A large, grande, wooden door centres the landing leading to the master bedroom, 
     "exits": {"downstairs": "RoomLobby", "north": "RoomMasterBedroom", "east": "RoomLandingRight", "west": "RoomLandingLeft"},
     "items": [],
     "ghost_in_room": False,
-    "on_enter": "stairs_permission_check"
+    "on_enter": "stairs_permission_check",
+    "ghost": ""
 }
 
 room_landing_left = {
@@ -105,7 +108,8 @@ The children's room is opposite and a slight pink glow radiates from the inside.
 The atmosphere feels very sombre and gloomy.""",
     "exits": {"east": "RoomLandingCentre", "north": "RoomStorage", "south": "RoomChildBedroom"},
     "items": [],
-    "ghost_in_room": False
+    "ghost_in_room": False,
+    "ghost": ""
 }
 
 room_landing_right = {
@@ -117,7 +121,8 @@ There is a strange, medieval painting on the wall opposite to the bathroom, bigg
 It's captivating and almost inviting you to step in, breaking the barrier between the past and the present.""",
     "exits": {"west": "RoomLandingCentre", "north": "RoomBathroom", "south": "RoomHidden"},
     "items": [],
-    "ghost_in_room": False
+    "ghost_in_room": False,
+    "ghost": ""
 }
 
 room_master_bedroom = {
@@ -174,7 +179,8 @@ The sound of the dripping tap breaks the silence in the choking and claustrophob
 """,
     "exits": {"south": "RoomLandingRight", "west": "RoomMasterBedroom"},
     "items": [],
-    "ghost_in_room": False
+    "ghost_in_room": False,
+    "ghost": ""
 }
 
 room_hidden = {
