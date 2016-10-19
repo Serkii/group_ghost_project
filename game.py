@@ -584,7 +584,6 @@ def main():
         print("Do you want to play from your last save? Y/N")
         replay = input("> ")
         if replay == "Y":
-            #needs a way to check if there is a save...
             load_state()
             print("Loading last save...")
         else:
@@ -609,4 +608,5 @@ def main():
 if __name__ == "__main__":
     load_sounds()
     gamestate = GameState.main
+    save_state()
     main()
