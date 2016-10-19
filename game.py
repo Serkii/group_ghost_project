@@ -3,7 +3,6 @@ from player import *
 from items import *
 from gameparser import *
 from sound import *
-from npc import *
 import random
 import pickle
 import sys
@@ -268,12 +267,6 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
-            
-    elif command[0] == "approach":
-        if len(command) > 1:
-            execute_approach(command[1])
-        else:
-            print("Approach what?")
 
     elif command[0] == "save":
         save_state()
