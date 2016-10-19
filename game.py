@@ -216,7 +216,7 @@ def print_room(room):
     print(room["name"].upper())
     print()
     # Display room description
-    print(room["description"])
+    print(room['description'])
     print()
     print_room_items(room)
     if room["ghost_in_room"] == True:
