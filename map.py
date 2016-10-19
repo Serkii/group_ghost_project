@@ -193,7 +193,7 @@ rooms = {
     "RoomLandingLeft": room_landing_left,
     "RoomLandingRight": room_landing_right,
     "RoomMasterBedroom": room_master_bedroom,
-    "RoomStorage": room_library,
+    "RoomLibrary": room_library,
     "RoomChildBedroom": room_child_bedroom,
     "RoomBathroom": room_bathroom,
     "RoomHidden": room_hidden
