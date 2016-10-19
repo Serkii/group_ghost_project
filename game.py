@@ -412,6 +412,7 @@ def execute_take(item_id):
     if item_matches:
         current_room["items"].remove(item_matches[0])
         inventory.append(item_matches[0])
+        calculate_stats()
     else:
         print("You cannot take that.")
     
@@ -425,6 +426,7 @@ def execute_drop(item_id):
     if item_matches:
         inventory.remove(item_matches[0])
         current_room["items"].append(item_matches[0])
+        calculate_stats()
     else:
         print("You cannot drop that.")
 
