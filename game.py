@@ -305,8 +305,9 @@ def execute_combat_command(command, ghost, inventory, room):
 
     global sanity
 
+
     if 0 == len(command):
-        return
+         return
 
     if command[0] == "fight":
         if item_proton_gun in inventory:
@@ -316,24 +317,15 @@ def execute_combat_command(command, ghost, inventory, room):
             if player_attack_power > ghost_attack_power:
                 print(ghost["damage_text"])
                 ghost["hp"] = ghost["hp"] - 10
-                if ghost["hp"] == 0:
-                    print(ghost["death_text"])
-                    room["ghost_in_room"] = False
-                    gamestate = 0
-                    main()
             elif ghost_attack_power > player_attack_power:
                 print(ghost["onhit_text"])
                 sanity = sanity - 10
-                if sanity == 0:
-                    gamestate = 3
-                    main()
+            elif player_attack_power == ghost_attack_power:
+                print(ghost["name"] + " avoids the attack!")
         else:
             print("You have no weapon that can harm a ghost!")
             print(ghost["onhit_text"])
             sanity = sanity - 10
-            if sanity == 0:
-                gamestate = 3
-                main()
 
     elif command[0] == "examine":
         print(ghost["desc"])
@@ -351,8 +343,6 @@ def execute_combat_command(command, ghost, inventory, room):
             print("You failed to escape!")
             print(ghost["onhit_text"])
             sanity = sanity - 10
-            if sanity >= 0:
-                gamestate = 3
         elif player_escape >= ghost_catch:
             print("You escape, but which way?")
             for direction in current_room["exits"]:
@@ -475,15 +465,30 @@ def inv_menu(inventory):
 
     return normalised_user_input
 
-def combat_menu(inventory, ghost):
+def combat_menu(inventory, ghost, room):
 
-    print_combat_menu(inventory, ghost)
+    global sanity
+    global gamestate
 
-    user_input = input("> ")
+    if sanity > 0:
+        if ghost["hp"] > 0:
+            print_combat_menu(inventory, ghost)
 
-    normalised_user_input = normalise_input(user_input)
+            user_input = input("> ")
 
-    return normalised_user_input
+            normalised_user_input = normalise_input(user_input)
+
+            return normalised_user_input
+
+        else:
+            print(ghost["death_text"])
+            room["ghost_in_room"] = False
+            gamestate = 0
+            main()
+    else:
+        gamestate = 3
+        main()
+
 
 def move(exits, direction):
     """This function returns the room into which the player will move if, from a
@@ -557,9 +562,7 @@ def main():
 
         enter_combat(current_ghost)
 
-        combat_menu(inventory, current_ghost)
-
-        command = combat_menu(inventory, current_ghost)
+        command = combat_menu(inventory, current_ghost, current_room)
 
         execute_combat_command(command, current_ghost, inventory, current_room)
 
