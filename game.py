@@ -41,12 +41,12 @@ def do_response(response):
 		user_resp = "";
 		while True:
 			print("\n".join([" - " + r for r in response["responses"].keys()]))
-			user_resp = input("> ").lower
-			resp_matches = [resp for resp in response["responses"] if resp.lower().startswith(user_resp)]
+			user_resp = input("> ").lower()
+			resp_matches = [resp for resp in response["responses"].keys() if resp.lower().startswith(user_resp)]
 			if resp_matches:
-				do_response(resp_matches[0])
+				do_response(response["responses"][resp_matches[0]])
 				return
-			print("Could you repeat that? (Note: This part is case-sensitive because I'm lazy)")
+			print("Could you repeat that?")
 
 def insert_name():
     print("")
