@@ -3,6 +3,7 @@ from player import *
 from items import *
 from gameparser import *
 from sound import *
+from ghosts import *
 import random
 import pickle
 import sys
@@ -328,7 +329,7 @@ def execute_combat_command(command, ghost, inventory, room):
         print("PLACEHOLDER")
 
     elif command[0] == "talk":
-        print("conversation stuff goes here")
+        converse(ghost)
 
     elif command[0] == "run":
         player_escape = random.randrange(1, 13)
@@ -529,7 +530,7 @@ def load_state():
     # This is the entry point of our program
 def main():
 
-    print_intro("PLACEHOLDER NAME")
+    #print_intro("PLACEHOLDER NAME")
     # Main game loop
     while gamestate == 0:
 

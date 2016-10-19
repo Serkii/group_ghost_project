@@ -1,9 +1,9 @@
 from combatscenarios import *
 
 def converse(ghost):
-	print("You approach %s." % npc["name"])
+	print("You approach %s." % ghost["name"])
 	if "conversation" in ghost:
-		do_response(npc["conversation"])
+		do_response(ghost["conversation"])
 	else:
 		print("This ghost doesn't seem that interested in conversation")
 	
