@@ -499,21 +499,27 @@ def execute_examine_inv(item_id):
 
 def execute_use(item_id, ghost, room):
 
-    global gamestate
+    
 
     item_matches = [item for item in inventory if item["id"] == item_id]
     if item_matches:
         if gamestate == GameState.fight:
             if item_matches[0] in ghost["items_wanted"]:
-                print(ghost["peace_text"])
-                ghost["peace_condition_met"] = True
-                room["ghost_in_room"] = False
-                gamestate = GameState.main
-                main()
+                ghost_peace()
+
 
     else:
         print("You cannot use that.")
 
+def ghost_peace(ghost, room):
+
+    global gamestate
+    
+    print(ghost["peace_text"])
+    ghost["peace_condition_met"] = True
+    room["ghost_in_room"] = False
+    gamestate = GameState.main
+    main()
         
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
