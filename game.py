@@ -669,6 +669,9 @@ def give_loot(ghost):
     global killed_ghost_count
     global attack_multiplier
     killed_ghost_count += 1
+    if killed_ghost_count == 6:
+        print("You hear a sudden noise from elsewhere in the mansion, like stone grinding against stone...")
+        rooms["RoomLandingRight"]["exits"]["south"] = "RoomHidden"
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
