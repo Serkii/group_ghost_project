@@ -22,7 +22,7 @@ it's hard to make out the original colour of the walls what with all the graffit
 applied to it. Your moped purrs' and waits on standby for your return, once the 
 pizzas have been delivered of course.""",
     #condition: You should not be able to return to this room once entering the lobby
-    "exits": {"inside": "RoomLobby"},
+    "exits": {"north": "RoomLobby"},
     "items": [],
     "ghost_in_room": False
 }
@@ -135,9 +135,11 @@ An intricately designed domed ceiling is now falling down pieces by pieces.
 The large windows next to the magnificent four poster bed overlook the overgrown mazes in the acres of land that connect to the woods.
 An aged chest lies at the foot of the bed wrapped around tightly in untouched chains clamped with an ancient lock.
 In the corner of the room is a dressing table with a dust-covered mirror and broken chair.""",
+    "condition": "<Ghost here>",
     "exits": {"south": "RoomLandingCentre", "east": "RoomBathroom"},
     "items": [],
-    "ghost_in_room": False
+    "ghost": ghost_Lady,
+    "ghost_in_room": True
 }
 
 room_library = {
@@ -148,9 +150,11 @@ Most of the ancient books are fallen, lying on the ground in a chaotic state mak
 An armchair ripped to shreds and a coffee table, with one leg short are situated in the middle of the room.
 You are surrounded by information that may be helpful to complete your mission.
 """,
+    "condition": "<Ghost here>",
     "exits": {"south": "RoomLandingLeft"},
     "items": [item_familytree,item_book],
-    "ghost_in_room": False
+    "ghost": ghost_Poltergeist,
+    "ghost_in_room": True
 }
 
 room_child_bedroom = {
@@ -161,9 +165,11 @@ A headless ballerina spins in the box.
 A rocking chair and wooden chair sway to the melody.
 The big window is plastered off but a pink aura is present in the room illuminating the space.
 """,
+    "condition": "<Ghost here>",
     "exits": {"north": "RoomLandingLeft"},
     "items": [],
-    "ghost_in_room": False
+    "ghost": ghost_toys,
+    "ghost_in_room": True
 }
 
 room_bathroom = {
@@ -184,9 +190,11 @@ room_hidden = {
     "description": """You are now in the hidden room!!
 Right in front of you is the Ghost-Busters team tied to each other back-to-back.
 Free them so that they enjoy their pizza and you can get your tip!""",
+    "condition": "<Ghost here>",
     "exits": {"north": "RoomLandingRight"},
     "items": [],
-    "ghost_in_room": False
+    "ghost": ghost_julia,
+    "ghost_in_room": True
 }
 
 rooms = {
