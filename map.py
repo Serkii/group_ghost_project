@@ -190,7 +190,7 @@ room_hidden = {
     "description": """You are now in the hidden room!!
 Right in front of you is the Ghost-Busters team tied to each other back-to-back.
 Free them so that they enjoy their pizza and you can get your tip!""",
-    "condition": "<Ghost here>",
+    "condition": "A Girl circles the Ghost Busters on a trycle she clutches a teddy bear head and a wooden sword in her arms.",
     "exits": {"north": "RoomLandingRight"},
     "items": [],
     "ghost": ghost_julia,

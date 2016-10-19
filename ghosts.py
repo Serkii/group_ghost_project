@@ -417,7 +417,7 @@ ghost_julia = {
 
 	"peace_conditions_met": 0,
 
-	"peace_text" : "'Congratulations! You really are a smart one, I've been stuck in this room for hundreds of years waiting for someone to complete the mystery.' Julia waves and slowly fades. 'Be sure to play with me again! Daddy, Mummy and Uncle get to go but I'm stuck here for eternity!' Julia disaperes from veiw, the ropes binding the Ghost Busters untangle themselves.",
+	"peace_text" : "'Congratulations! You really are a smart one, I've been stuck in this room for hundreds of years waiting for someone to complete the mystery.' Julia waves and slowly fades. 'Be sure to play with me again! Daddy, Mummy and Uncle get to go but I'm stuck here for eternity!' Julia disaperes from view, the ropes binding the Ghost Busters untangle themselves.",
 
 	"damage_text": "You fire the proton cannon at Julia",
 
@@ -431,7 +431,7 @@ ghost_julia = {
 				"Okay, I'll play your game.":{
 					"speech" : "Goodie! First Question and lets start easy; what is the name of the house?",
 					"responses" : {
-						"Clearveiw Mansion" : {
+						"Clearview Mansion" : {
 							"speech" : "Ding Ding!, Correct! Next question: How did the dog die?",
 							"responses" : {
 								"The Dog died from rat poison." : {
