@@ -9,9 +9,9 @@ try:
 
 	def load_sounds():
 		print("Loading sound files...")
-		#pygame.mixer.init(44100, -16, 2, 4096)
+		pygame.mixer.init(44100, -16, 2, 4096)
 		#time.sleep(10)
-		pygame.init()
+		#pygame.init()
 		for name in sound_files:
 			loaded_sounds[name] = pygame.mixer.Sound(SOUND_PATH + name)
 		print("Done loading sounds")
