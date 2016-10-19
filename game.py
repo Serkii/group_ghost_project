@@ -28,7 +28,7 @@ def converse(ghost):
 def hurt_player():
 	global sanity
 	sanity -= 50
-	return "test2"
+	#return "test2"
 	
 def do_response(response):
 	print(response["speech"])
