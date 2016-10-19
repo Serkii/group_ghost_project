@@ -212,6 +212,8 @@ item_poison = {
 
 	"attack": 2
 
+	"attack" : 2
+
 	#Found in the Childrens room, Useable against Julia
 
 }
