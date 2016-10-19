@@ -49,7 +49,7 @@ def calculate_stats():
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
-    play_sound("door_slam.wav")
+    play_sound("door_slam.wav", 0)
     print("The front door slams shut behind you!")
     return True
 
@@ -669,6 +669,9 @@ def give_loot(ghost):
     global killed_ghost_count
     global attack_multiplier
     killed_ghost_count += 1
+    if killed_ghost_count == 6:
+        print("You hear a sudden noise from elsewhere in the mansion, like stone grinding against stone...")
+        rooms["RoomLandingRight"]["exits"]["south"] = "RoomHidden"
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
@@ -719,7 +722,7 @@ def move(exits, direction):
     """
 
     # Next room to go to
-    play_sound("door_open.wav")
+    play_sound("door_open.wav", 0)
     return rooms[exits[direction]]
 
 def enter_combat(ghost):
@@ -895,7 +898,6 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
-    time.sleep(10)
     play_sound("music_box_distant.wav", 1000)
     play_sound("music_box.wav", 1000)
     play_music("distant")
