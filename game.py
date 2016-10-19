@@ -579,9 +579,13 @@ def main():
         execute_combat_command(command, current_ghost, inventory, current_room)
 
     while gamestate == GameState.dead:
-        print("-------------------")
-        print("---YOU ARE DEAD.---")
-        print("-------------------")
+        print("""
+            # #  #  # #      #  ##  ###     ##  ###  #  ##              
+### ###     # # # # # #     # # # # #       # # #   # # # #     ### ### 
+             #  # # # #     ### ##  ##      # # ##  ### # #             
+### ###      #  # # # #     # # # # #       # # #   # # # #     ### ### 
+             #   #  ###     # # # # ###     ##  ### # # ##             
+        """)
         print("Maybe you should be more careful next time.")
         print("Do you want to play from your last save? Y/N")
         replay = input("> ")
@@ -590,9 +594,13 @@ def main():
             load_state()
             print("Loading last save...")
         else:
-            print("---------------")
-            print("---GAME OVER---")
-            print("---------------")
+            print("""                                                            
+             ##  #  # # ###      #  # # ### ##              
+### ###     #   # # ### #       # # # # #   # #     ### ### 
+            # # ### ### ##      # # # # ##  ##              
+### ###     # # # # # # #       # # # # #   # #     ### ### 
+             ## # # # # ###      #   #  ### # #            
+             """)
         break
 
 
