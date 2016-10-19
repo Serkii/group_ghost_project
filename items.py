@@ -215,6 +215,8 @@ item_poison = {
 
 	"movable": True,
 
+	"attack": 2
+
 	#"attack" : 2
 
 	#Found in the Childrens room, Useable against Julia
@@ -255,7 +257,9 @@ item_cleaver = {
 
 	"desc": "It's a rusty meat cleaver, the edge has dulled and you wonder if this can even cut meat.",
 
-	"movable": True
+	"movable": True,
+
+	"attack": 2
 
 
 }

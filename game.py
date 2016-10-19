@@ -22,6 +22,30 @@ def clear_screen():
 
     print("\n"*100)
     
+def stop_close_music(placeholder):
+    play_music("music_box_distant.wav")
+    return True
+
+def play_close_music(placeholder):
+    play_music("music_box.wav")
+    return True
+
+def calculate_stats():
+
+    global attack_multiplier
+    global defense_multiplier
+    global inventory
+
+    defense_multiplier = 1.0
+
+    attack_multiplier = 1.0
+
+
+    for item in inventory:
+        if "attack" in item:
+            attack_multiplier *= item["attack"]
+        if "defense" in item:
+            defense_multiplier *= item["defense"]
 
 def lobby_on_enter(lobby):
     lobby.pop("on_enter", None)
@@ -422,6 +446,8 @@ def execute_combat_command(command, ghost, inventory, room):
     global player_combat_skill
 
 
+
+
     if 0 == len(command):
          return
 
@@ -641,10 +667,13 @@ def inv_menu(inventory):
 def give_loot(ghost):
     global inventory
     global killed_ghost_count
+    global attack_multiplier
     killed_ghost_count += 1
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
+    calculate_stats()
+
         
 
 def combat_menu(inventory, ghost, room):
@@ -820,6 +849,7 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
+    stop_close_music(None)
     player_name = insert_name()
     if player_name == "debug":
     	global attack_multiplier
