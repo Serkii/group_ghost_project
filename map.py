@@ -35,7 +35,7 @@ make it dangerous to navigate safely. Rays of light enter the room from the brok
 at the front of the house. One ray illuminates a small bust situated underneath the balcony
 of the second floor.""",
     #condition: "A strong ghostly aura blocks you from climbing the stairs"
-    "exits": {"north": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
+    "exits": {"upstairs": "RoomLandingCentre", "east": "RoomLiving", "west": "RoomDining"},
     "on_enter": lobby_on_enter,
     "items": [item_proton_gun],
     "npcs": [npc_test_ghost],
