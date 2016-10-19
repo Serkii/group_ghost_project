@@ -41,11 +41,12 @@ def do_response(response):
 		user_resp = "";
 		while True:
 			print("\n".join([" - " + r for r in response["responses"].keys()]))
-			user_resp = input("> ")
-			if user_resp in response["responses"]:
-				do_response(response["responses"][user_resp])
+			user_resp = input("> ").lower()
+			resp_matches = [resp for resp in response["responses"].keys() if resp.lower().startswith(user_resp)]
+			if resp_matches:
+				do_response(response["responses"][resp_matches[0]])
 				return
-			print("Could you repeat that? (Note: This part is case-sensitive because I'm lazy)")
+			print("Could you repeat that?")
 
 def insert_name():
     print("")
@@ -383,6 +384,7 @@ def execute_combat_command(command, ghost, inventory, room):
     elif command[0] == "use":
         if len(command) > 1:
             execute_use(command[1], ghost, room)
+
         else:
             print("Use what?")
 
