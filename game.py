@@ -31,11 +31,10 @@ def lobby_on_enter(lobby):
 
 def stairs_permission_check(landing):
     global attack_multiplier
-    if attack_multiplier > 2:
+    if killed_ghost_count == 3:
     	return True
     print("")
     print("An invisible, ghostly force, unimaginably cold to the touch, prevents you from climbing the staircase.")
-    print("You are too weak to go here!")
     return False
 
 def calculate_hp():
@@ -631,9 +630,12 @@ def inv_menu(inventory):
 
 def give_loot(ghost):
     global inventory
+    global killed_ghost_count
+    killed_ghost_count += 1
     if "loot" in ghost:
         print("The ghost dropped " + ", ".join([item["name"] for item in ghost["loot"]]))
         inventory += ghost["loot"]
+        
 
 def combat_menu(inventory, ghost, room):
 
