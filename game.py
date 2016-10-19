@@ -18,9 +18,15 @@ class GameState(Enum):
 
 SAVE_FILE = "save_data"
 
+def insert_name():
+    print("")
+    print("Welcome! Please enter your name: ")
+    user_input = input()
+    return user_input
+
 def print_intro(name):
     text = """
-You are 'Player_name' a Delivery Driver for Pizza Haunt, the number one Pizza company in the whole town,
+You are """ + name + """, a Delivery Driver for Pizza Haunt, the number one Pizza company in the whole town,
 also the only Pizza Company in the whole town but minor details are irrelevant.
 You and your trusty scooter had been all across town delivery all sorts of pizza's with all sorts of toppings and your shift was almost up when you receive one last order...
 
@@ -600,5 +606,7 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     load_sounds()
+    player_name = insert_name()
+    print_intro(player_name)
     gamestate = GameState.main
     main()
