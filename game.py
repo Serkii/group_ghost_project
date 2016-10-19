@@ -79,9 +79,11 @@ def do_response(response, ghost):
 
 def insert_name():
     print("")
-    print("Welcome! Please enter your name: ")
-    user_input = input()
-    return user_input
+    while True:
+	    print("Welcome! Please enter your name: ")
+  	  user_input = input()
+  	  if user_input:
+	    	return user_input
 
 def print_intro(name):
     text = """
