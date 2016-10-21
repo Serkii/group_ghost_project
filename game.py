@@ -777,8 +777,9 @@ you might still be getting a tip.""")
 def save_state():
     global sanity
     global total_time
+    global killed_ghost_count
     total_time = time.time() - start_time
-    state = [current_room, rooms, sanity, total_time]
+    state = [current_room, rooms, sanity, total_time, killed_ghost_count]
     save_file = open(SAVE_FILE, "wb")
     pickle.dump(state, save_file)
     save_file.close()
@@ -789,6 +790,7 @@ def load_state():
     global rooms
     global gamestate
     global start_time
+    global killed_ghost_count
     save_file = open(SAVE_FILE, "rb")
     state = pickle.load(save_file)
     save_file.close()
@@ -796,6 +798,7 @@ def load_state():
     current_room = state[0]
     sanity = state[2]
     start_time = time.time() - state[3]
+    killed_ghost_count = state[4]
     calculate_stats()
     gamestate = GameState.main
 
